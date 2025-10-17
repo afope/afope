@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>afọpẹ́fólúwa òjó - Software Engineer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: white;
+            background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+            min-height: 100vh;
+            cursor: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .section {
+            padding: 80px 0;
+            background: transparent;
+            margin: 2rem 0;
+            border-radius: 20px;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: white;
+            position: relative;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-content p {
+            color: white;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: white;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card h3 {
+            color: white;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .skill-card p {
+            color: white;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .project-content p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ff1493;
+            border: 2px solid #ff1493;
+        }
+
+        .btn-secondary:hover {
+            background: #ff1493;
+            color: white;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact h2::after {
+            background: white;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .contact-item a:hover {
+            color: #ffd700;
+        }
+
+        footer {
+            background: transparent;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        footer p {
+            color: white;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                margin: 1rem 0;
+                padding: 40px 0;
+            }
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .audio-control {
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, rgba(255, 20, 147, 0.8), rgba(255, 105, 180, 0.8));
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 10000;
+            font-size: 1.8rem;
+            box-shadow: 0 8px 32px rgba(255, 20, 147, 0.5);
+            animation: blob 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .audio-control:hover {
+            background: linear-gradient(135deg, rgba(255, 20, 147, 1), rgba(255, 105, 180, 1));
+            transform: translate(-50%, -50%) scale(1.2);
+            box-shadow: 0 12px 40px rgba(255, 20, 147, 0.8);
+            border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+        }
+
+        .audio-control.muted {
+            background: linear-gradient(135deg, rgba(255, 0, 100, 0.4), rgba(255, 50, 150, 0.4));
+            border-color: rgba(255, 0, 100, 0.6);
+            animation: blob-muted 2s ease-in-out infinite;
+        }
+
+        .audio-control.muted:hover {
+            background: linear-gradient(135deg, rgba(255, 0, 100, 1), rgba(255, 50, 150, 1));
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+
+        .audio-control::before {
+            content: '';
+        }
+
+        .audio-control.muted::before {
+            content: '';
+        }
+
+        .audio-control::after {
+            content: 'click to mute';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            backdrop-filter: blur(10px);
+        }
+
+        .audio-control.muted::after {
+            content: 'click to unmute';
+        }
+
+        .audio-control:hover::after {
+            opacity: 1;
+            top: -45px;
+        }
+
+        @keyframes blob {
+            0%, 100% {
+                border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            }
+            25% {
+                border-radius: 50% 50% 50% 50% / 40% 60% 60% 40%;
+            }
+            50% {
+                border-radius: 50% 50% 50% 50% / 60% 40% 40% 60%;
+            }
+            75% {
+                border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            }
+        }
+
+        @keyframes blob-muted {
+            0%, 100% {
+                border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+            }
+            25% {
+                border-radius: 50% 50% 50% 50% / 60% 40% 40% 60%;
+            }
+            50% {
+                border-radius: 50% 50% 50% 50% / 40% 60% 60% 40%;
+            }
+            75% {
+                border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .audio-control {
+                right: 15px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">afọpẹ́fólúwa òjó</div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <video class="hero-video" autoplay muted loop playsinline id="heroVideo">
+            <source src="afope.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="container">
+            <!-- <div class="hero-content">
+                <h1>afọpẹ́fólúwa</h1>
+                <p>software engineer & problem solver</p>
+                <p>passionate about creating innovative solutions and building amazing user experiences</p>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- <section id="about" class="section">
+        <div class="container">
+            <h2>about me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>i'm a passionate software engineer with a love for creating innovative solutions and solving complex problems. with expertise in modern web technologies and a strong foundation in computer science principles, i enjoy building applications that make a real difference.</p>
+                    <p>my journey in software development has been driven by curiosity and a desire to continuously learn and grow. i believe in writing clean, maintainable code and following best practices to create scalable and efficient solutions.</p>
+                    <p>when i'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community.</p>
+                </div>
+                <div class="about-image">
+                    <div style="background: linear-gradient(135deg, #ff1493, #ff69b4); height: 300px; border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
+                        your photo here
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- <section id="skills" class="section">
+        <div class="container">
+            <h2>skills & technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>frontend development</h3>
+                    <p>react, vue.js, html5, css3, javascript, typescript</p>
+                </div>
+                <div class="skill-card">
+                    <h3>backend development</h3>
+                    <p>node.js, python, java, express.js, django, spring boot</p>
+                </div>
+                <div class="skill-card">
+                    <h3>database & cloud</h3>
+                    <p>mongodb, postgresql, mysql, aws, docker, kubernetes</p>
+                </div>
+                <div class="skill-card">
+                    <h3>tools & practices</h3>
+                    <p>git, agile, ci/cd, testing, code review, devops</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- <section id="projects" class="section">
+        <div class="container">
+            <h2>featured projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div style="background: linear-gradient(135deg, #ff1493, #ff69b4); height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.1rem;">
+                        project screenshot
+                    </div>
+                    <div class="project-content">
+                        <h3>e-commerce platform</h3>
+                        <p>a full-stack e-commerce solution built with react and node.js, featuring real-time inventory management and secure payment processing.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">react</span>
+                            <span class="tech-tag">node.js</span>
+                            <span class="tech-tag">mongodb</span>
+                            <span class="tech-tag">stripe api</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">live demo</a>
+                            <a href="#" class="btn btn-secondary">github</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div style="background: linear-gradient(135deg, #764ba2, #667eea); height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.1rem;">
+                        project screenshot
+                    </div>
+                    <div class="project-content">
+                        <h3>task management app</h3>
+                        <p>a collaborative task management application with real-time updates, team collaboration features, and advanced project tracking capabilities.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">vue.js</span>
+                            <span class="tech-tag">express.js</span>
+                            <span class="tech-tag">postgresql</span>
+                            <span class="tech-tag">socket.io</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">live demo</a>
+                            <a href="#" class="btn btn-secondary">github</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div style="background: linear-gradient(135deg, #ff1493, #ff69b4); height: 200px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.1rem;">
+                        project screenshot
+                    </div>
+                    <div class="project-content">
+                        <h3>data visualization dashboard</h3>
+                        <p>an interactive dashboard for data analysis and visualization, featuring real-time charts, filtering capabilities, and export functionality.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">d3.js</span>
+                            <span class="tech-tag">python</span>
+                            <span class="tech-tag">flask</span>
+                            <span class="tech-tag">chart.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-primary">live demo</a>
+                            <a href="#" class="btn btn-secondary">github</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- <section id="contact" class="section contact">
+        <div class="container">
+            <h2>get in touch</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 3rem;">i'm always interested in new opportunities and exciting projects. let's connect!</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>email</h3>
+                    <a href="mailto:your.email@example.com">your.email@example.com</a>
+                </div>
+                <div class="contact-item">
+                    <h3>linkedin</h3>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a>
+                </div>
+                <div class="contact-item">
+                    <h3>github</h3>
+                    <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
+                </div>
+                <div class="contact-item">
+                    <h3>phone</h3>
+                    <a href="tel:+1234567890">+1 (234) 567-890</a>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- <footer>
+        <div class="container">
+            <p>&copy; 2024 afopefoluwa. all rights reserved.</p>
+        </div>
+    </footer> -->
+
+    <div class="audio-control" id="audioControl" title="Toggle Video Sound"></div>
+    <a href="#home" class="scroll-to-top">↑</a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.2)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.1)';
+            }
+        });
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.querySelector('.scroll-to-top');
+            if (window.scrollY > 300) {
+                scrollBtn.style.opacity = '1';
+                scrollBtn.style.visibility = 'visible';
+            } else {
+                scrollBtn.style.opacity = '0';
+                scrollBtn.style.visibility = 'hidden';
+            }
+        });
+
+        // Initialize scroll to top button
+        document.querySelector('.scroll-to-top').style.opacity = '0';
+        document.querySelector('.scroll-to-top').style.visibility = 'hidden';
+        document.querySelector('.scroll-to-top').style.transition = 'all 0.3s ease';
+
+        // Audio control functionality
+        const audioControl = document.getElementById('audioControl');
+        const heroVideo = document.getElementById('heroVideo');
+        let isMuted = true;
+
+        audioControl.addEventListener('click', function() {
+            if (isMuted) {
+                heroVideo.muted = false;
+                audioControl.classList.remove('muted');
+                isMuted = false;
+            } else {
+                heroVideo.muted = true;
+                audioControl.classList.add('muted');
+                isMuted = true;
+            }
+        });
+
+        // Show audio control only when video is in view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    audioControl.style.opacity = '1';
+                    audioControl.style.visibility = 'visible';
+                } else {
+                    audioControl.style.opacity = '0';
+                    audioControl.style.visibility = 'hidden';
+                }
+            });
+        });
+
+        observer.observe(document.getElementById('home'));
+
+        // Initialize audio control
+        audioControl.style.opacity = '1';
+        audioControl.style.visibility = 'visible';
+        audioControl.style.transition = 'all 0.3s ease';
+
+        // Make blob follow mouse cursor
+        document.addEventListener('mousemove', function(e) {
+            audioControl.style.left = e.clientX + 'px';
+            audioControl.style.top = e.clientY + 'px';
+        });
+
+        // Make blob clickable for audio control
+        audioControl.style.pointerEvents = 'auto';
+    </script>
+</body>
+</html>
