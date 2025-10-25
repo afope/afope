@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>afopefoluwa ojo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #ffffff;
+            color: #333333;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .name {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ff69b4, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            color: #666666;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #333333;
+            color: #ffffff;
+            padding: 20px 40px;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: 2px solid #333333;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: #333333;
+            transform: translateY(-2px);
+        }
+
+        .nav-links {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            z-index: 3;
+        }
+
+        .nav-links a {
+            color: #333333;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ff69b4;
+        }
+
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2.5rem;
+            }
+            
+            .title {
+                font-size: 1rem;
+            }
+            
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 0.9rem;
+            }
+            
+            .nav-links {
+                top: 20px;
+                right: 20px;
+            }
+            
+            .nav-links a {
+                margin-left: 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="afope.mp4" type="video/mp4">
+            <!-- Fallback for browsers that don't support video -->
+            <div style="width: 100%; height: 100%; background: linear-gradient(45deg, #ff69b4, #ffd700);"></div>
+        </video>
+    </div>
+    
+    <div class="overlay"></div>
+    
+    <nav class="nav-links">
+        <a href="portfolio.html">portfolio</a>
+        <a href="mailto:fope.ojo@gmail.com" target="_blank">contact</a>
+        <a href="https://github.com/afope" target="_blank">github</a>
+        <a href="https://medium.com/@Fope_" target="_blank">blog</a>
+    </nav>
+    
+    <div class="content">
+        <!-- <h1 class="name">afopefoluwa ojo</h1>
+        <p class="title">creative technologist</p> -->
+        <a href="portfolio.html" class="cta-button">portfolio</a>
+    </div>
+</body>
+</html>
