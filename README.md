@@ -8,11 +8,21 @@ _creative technologist & software engineer_
 
 ---
 
+## 👩🏿‍💻 day job
+
+currently building consumer products at adidas. previously worked on healthcare tech, blockchain platforms, and digital media. 8+ years shipping production code.
+
+## 🎨 after hours
+
+this is my playground—where i experiment, break things, and build for fun.
+
+---
+
 ## 🚀 **work in progress** - building the future of digital experiences
 
 > _"exploring the intersection of generative art, interactive design, and emerging technologies to create innovative experiences that connect with users in meaningful ways."_
 
-this repository represents an evolving showcase of my journey as a creative technologist, where art meets code and innovation drives every pixel. currently in active development, i'm enjoying aiming to explore the boundaries of what's possible in the browser.
+this repository represents an evolving showcase of my journey as a software enginner and creative technologist, where art meets code and innovation drives every pixel. currently in active development, i'm exploring the boundaries of what's possible in the browser.
 
 ---
 
@@ -34,13 +44,13 @@ an interactive website designed for a private members club, featuring sophistica
 
 a deeply personal interactive poem about conversations with my father, inspired by grace paley's work, incorporating web3 elements.
 
-**tech stack:** `html` `css` `javascript`
+**tech stack:** `html` `css` `javascript` `web3`
 
 ### [barely literate](https://barely-literate.vercel.app/) - _book club platform_
 
 a modern book club application enabling users to vote, review, and discover literature in a decentralized environment.
 
-**tech stack:** `react` `next.js` `javascript`
+**tech stack:** `react` `next.js` `javascript` `web3`
 
 ### [ita](https://ita-red.vercel.app/) - _event landing page_
 
@@ -98,17 +108,6 @@ i believe in the power of technology to create meaningful human connections. my 
 - **innovation & accessibility** - making cutting-edge tech approachable
 - **storytelling & interaction** - engaging users through compelling narratives
 - **performance & beauty** - creating experiences that are both fast and beautiful
-
----
-
-## 📈 about me
-
-**creative technologist & software engineer**
-
-- passionate about building innovative solutions that connect with users
-- focused on the intersection of technology and creativity
-- exploring new ways to tell stories through code
-- constantly learning and experimenting with emerging technologies
 
 ---
 
