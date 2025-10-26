@@ -12,7 +12,7 @@ _creative technologist & software engineer_
 
 > _"exploring the intersection of generative art, interactive design, and emerging technologies to create innovative experiences that connect with users in meaningful ways."_
 
-this repository represents an evolving showcase of my journey as a creative technologist, where art meets code and innovation drives every pixel. currently in active development, i'm pushing the boundaries of what's possible in the browser.
+this repository represents an evolving showcase of my journey as a creative technologist, where art meets code and innovation drives every pixel. currently in active development, i'm enjoying aiming to explore the boundaries of what's possible in the browser.
 
 ---
 
