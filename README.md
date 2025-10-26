@@ -34,13 +34,13 @@ an interactive website designed for a private members club, featuring sophistica
 
 a deeply personal interactive poem about conversations with my father, inspired by grace paley's work, incorporating web3 elements.
 
-**tech stack:** `html` `css` `javascript` `web3`
+**tech stack:** `html` `css` `javascript`
 
 ### [barely literate](https://barely-literate.vercel.app/) - _book club platform_
 
 a modern book club application enabling users to vote, review, and discover literature in a decentralized environment.
 
-**tech stack:** `react` `next.js` `web3` `javascript`
+**tech stack:** `react` `next.js` `javascript`
 
 ### [ita](https://ita-red.vercel.app/) - _event landing page_
 
@@ -55,6 +55,7 @@ an engaging event landing page featuring interactive countdown timers and smooth
 ### **frontend development**
 
 - modern javascript (es6+)
+- typescript
 - react & next.js
 - html5 & css3
 - responsive design
@@ -63,6 +64,7 @@ an engaging event landing page featuring interactive countdown timers and smooth
 ### **creative technologies**
 
 - generative art (p5.js)
+- d3 js
 - interactive design
 - web3 integration
 - creative coding
