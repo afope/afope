@@ -22,7 +22,7 @@ this is my playground—where i experiment, break things, and build for fun.
 
 > _"exploring the intersection of generative art, interactive design, and emerging technologies to create innovative experiences that connect with users in meaningful ways."_
 
-this repository represents an evolving showcase of my journey as a software enginner and creative technologist, where art meets code and innovation drives every pixel. currently in active development, i'm exploring the boundaries of what's possible in the browser.
+this repository represents an evolving showcase of my journey as a software engineer and creative technologist, where art meets code and innovation drives every pixel. currently in active development, i'm exploring the boundaries of what's possible in the browser.
 
 ---
 
