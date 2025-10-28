@@ -2,7 +2,7 @@
 
 _creative technologist & software engineer_
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-Live-brightgreen)](https://afopefoluwa.vercel.app)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live-brightgreen)](https://afopefoluwaojo.com)
 [![GitHub](https://img.shields.io/badge/GitHub-afope-blue)](https://github.com/afope)
 [![Email](https://img.shields.io/badge/Email-Contact-pink)](mailto:fope.ojo@gmail.com)
 
