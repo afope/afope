@@ -123,7 +123,7 @@ this portfolio is **actively maintained** and represents a living document of my
 
 ---
 
-## 🤝 let's connect
+## 🤝🏿 let's connect
 
 i'm always excited to collaborate on innovative projects and discuss the future of digital experiences.
 
