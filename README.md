@@ -1,4 +1,4 @@
-<!-- # afopefoluwa ojo
+# afopefoluwa ojo
 
 _creative technologist & software engineer_
 
@@ -148,4 +148,4 @@ _"ready to shape the future of consumer experiences in ai? let's innovate togeth
   <img src="https://img.shields.io/badge/Made%20with-❤️-pink" alt="Made with love">
   <img src="https://img.shields.io/badge/Status-Work%20in%20Progress-orange" alt="Work in Progress">
   <img src="https://img.shields.io/badge/Updated-Daily-brightgreen" alt="Updated Daily">
-</div> -->
+</div>
