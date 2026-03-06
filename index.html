@@ -13,7 +13,7 @@
         }
 
         body {
-            font-family: 'Courier New', monospace;
+            font-family: 'Commit Mono', monospace;
             background: #ffffff;
             color: #333333;
             overflow: hidden;
@@ -56,10 +56,11 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
+            justify-content: flex-start;
             align-items: center;
             text-align: center;
             padding: 40px;
+            padding-top: 35%;
         }
 
         .name {
@@ -71,6 +72,13 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             letter-spacing: 2px;
+            transition: border-bottom 0.3s ease;
+            border-bottom: 1px solid transparent;
+            display: inline-block;
+        }
+
+        .name:hover {
+            border-bottom: 1px solid #333333;
         }
 
         .title {
@@ -78,6 +86,17 @@
             color: #666666;
             margin-bottom: 40px;
             letter-spacing: 1px;
+        }
+
+        .title a {
+            color: #333333;
+            text-decoration: none;
+            transition: border-bottom 0.3s ease;
+            border-bottom: 1px solid #333333;
+        }
+
+        .title a:hover {
+            border-bottom: 1px solid #333333;
         }
 
         .cta-button {
@@ -148,8 +167,8 @@
 
 <body>
     <div class="content">
-        <h1>afopefoluwa ojo</h1>
-        <p>// writer, creative technologist //</p>
+        <h1>afọpẹ́fólúwa òjó</h1>
+        <p class="title"><a href="https://alonghouse.com/the-madness-of-good-thoughts/" target="_blank">ààlà</a></p>
     </div>
     <!-- <video autoplay muted loop>
             <source src="afope.mp4" type="video/mp4">
@@ -160,18 +179,13 @@
 
     <div class="overlay"></div>
 
-    <nav class="nav-links">
+    <!-- <nav class="nav-links">
         <a href="portfolio.html">portfolio</a>
         <a href="mailto:fope.ojo@gmail.com" target="_blank">contact</a>
         <a href="https://github.com/afope" target="_blank">github</a>
-        <a href="https://medium.com/@Fope_" target="_blank">blog</a>
+        <!-- <a href="https://medium.com/@Fope_" target="_blank">blog</a> -->
     </nav>
 
-    <div class="content">
-        <!-- <h1 class="name">afopefoluwa ojo</h1>
-        <p class="title">creative technologist</p> -->
-        <a href="portfolio.html" class="cta-button">portfolio</a>
-    </div>
 </body>
 
 </html>
