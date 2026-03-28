@@ -207,7 +207,8 @@
         }
 
         .video-title-box {
-            background: rgba(255, 255, 255, 0.94);
+            background: rgba(255, 255, 255, 0.58);
+            backdrop-filter: blur(6px) saturate(120%);
             color: #111;
             width: min(85vw, 980px);
             height: min(72vh, 680px);
@@ -217,8 +218,9 @@
             justify-content: center;
             text-align: center;
             gap: 10px;
-            box-shadow: 0 40px 120px rgba(0, 0, 0, 0.35);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
+            border: none;
+            border-radius: 8px;
         }
 
         .video-title-text {
@@ -1135,7 +1137,7 @@
             <div class="doc-bg"></div>
             <div class="doc-paper">
                 <div class="doc-header">
-                    <div class="doc-meta">Essay &nbsp;·&nbsp; 2024 &nbsp;·&nbsp; Iskanchi Magazine</div>
+                    <div class="doc-meta">Fiction &nbsp;·&nbsp; 2024 &nbsp;·&nbsp; Iskanchi Magazine</div>
                     <div class="doc-title">You Came Here To Rest</div>
                     <div class="doc-byline">afọpẹ́fólúwa òjó</div>
                     <div class="doc-meta">Longlisted: Elizabeth Jolley Short Story Prize (2023) &nbsp;·&nbsp;
@@ -1611,9 +1613,10 @@
             }
 
             function buildSeq() {
-                // Shuffle projects
-                var shuffled = shuffle(projectIds);
-                sequence = shuffled;
+                // Start with 'You Came Here To Rest' (p10), then shuffle the rest
+                var rest = projectIds.filter(function (id) { return id !== 'p10'; });
+                var shuffledRest = shuffle(rest);
+                sequence = ['p10'].concat(shuffledRest);
                 seqPos = 0;
             }
 
