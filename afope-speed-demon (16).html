@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Afopefoluwa Ojo — writer and creative technologist.">
 <title>afọpẹ́fólúwa òjó</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Syne:wght@400;700;800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -789,7 +788,6 @@ footer {
   margin-top: .25rem;
 }
 .subscribe-confirm.show { opacity: 1; }
-.subscribe-field { display: none; }
 
 /* ─── MEDIA MODAL ─── */
 .tc-view {
@@ -862,11 +860,6 @@ footer {
 .reveal.visible { opacity:1; transform:translateY(0); }
 
 /* RESPONSIVE */
-@media (max-width: 900px), (hover: none) {
-  body { cursor: auto; }
-  .cursor { display: none !important; }
-  a, button, .tech-card, .modal-close { cursor: pointer; }
-}
 @media (max-width: 900px) {
   #hero { grid-template-columns: 1fr; }
   .hero-right { display: none; }
@@ -1047,7 +1040,7 @@ footer {
           <div class="np-award-row">Shortlisted · Iskanchi Magazine Prize (2024)</div>
           <div class="np-award-row">Longlisted · Dzanc Prize</div>
           <div class="np-award-row">Longlisted · Commonwealth Short Story Prize</div>
-          <div class="np-award-row">Pushcart Prize Nomination</div>
+          <div class="np-award-row">Pushcart Nomination</div>
         </div>
 
         <div class="np-pullquote">
@@ -1109,19 +1102,6 @@ footer {
   <div class="section-label reveal">Creative Technology</div>
   <div class="tech-grid reveal">
 
-    <div class="tech-card" data-media-type="link" data-media='["https://vertigo-silk.vercel.app/"]' data-title="Colab NowNow · Vertigo">
-      <div class="tc-tag">2018 · Maputo · Colab NowNow</div>
-      <h3 class="tc-title">Vertigo</h3>
-      <p class="tc-desc">Creative residency at Maputo Fast Forward Festival, organised by the British Council. Exploring the Nigerian women's question via p5.js, poetry, and media from a Lagos women's reproductive clinic — a generative web piece where photography and code generate each other in the browser.</p>
-      <div class="tc-stack">
-        <span class="sp">p5.js</span>
-        <span class="sp">Installation</span>
-        <span class="sp">British Council</span>
-        <span class="sp">Generative Art</span>
-      </div>
-      <div class="tc-view">Try it →</div>
-    </div>
-
     <div class="tech-card" data-media-type="link" data-media='["https://huggingface.co/spaces/afope/masquerade-classifier"]' data-title="Masquerade Classifier">
       <div class="tc-tag">2024 · Hugging Face</div>
       <h3 class="tc-title">Masquerade Classifier</h3>
@@ -1134,7 +1114,7 @@ footer {
       <div class="tc-view">Try it →</div>
     </div>
 
-    <div class="tech-card" data-media-type="images" data-media='["afrikan_poet.JPG", "afrikan_poet_2.JPG"]' data-title="An Afrikan Poet Cries at the Wind">
+    <div class="tech-card" data-media-type="video" data-media='["https://player.vimeo.com/video/475427035?autoplay=1&loop=1&muted=1&byline=0&title=0&portrait=0&controls=1"]' data-title="An Afrikan Poet Cries at the Wind">
       <div class="tc-tag">2020 · Savvy Contemporary, Berlin</div>
       <h3 class="tc-title">An Afrikan Poet Cries at the Wind</h3>
       <p class="tc-desc">Poems scraped from the internet, redistributed one by one at random to subscribers. The archive as decolonial act. Goethe Institut Lagos-Berlin residency.</p>
@@ -1142,6 +1122,18 @@ footer {
         <span class="sp">Archive</span>
         <span class="sp">Distribution</span>
         <span class="sp">Poetry</span>
+      </div>
+      <div class="tc-view">View project →</div>
+    </div>
+
+    <div class="tech-card" data-media-type="video" data-media='["https://player.vimeo.com/video/455802221?autoplay=1&loop=1&muted=1&byline=0&title=0&portrait=0&controls=1"]' data-title="Colab NowNow">
+      <div class="tc-tag">2018 · Mozambique</div>
+      <h3 class="tc-title">Colab NowNow</h3>
+      <p class="tc-desc">Creative residency at Maputo Fast Forward Festival. The Nigerian women's question via p5.js, poetry, and media from a Lagos women's clinic.</p>
+      <div class="tc-stack">
+        <span class="sp">p5.js</span>
+        <span class="sp">Installation</span>
+        <span class="sp">British Council</span>
       </div>
       <div class="tc-view">View project →</div>
     </div>
@@ -1156,18 +1148,6 @@ footer {
         <span class="sp">Cultural Institution</span>
       </div>
       <div class="tc-view">Visit site →</div>
-    </div>
-
-    <div class="tech-card" data-media-type="link" data-media='["https://graceland-flax.vercel.app/"]' data-title="Graceland">
-      <div class="tc-tag">Interactive Poetry · Web</div>
-      <h3 class="tc-title">Graceland</h3>
-      <p class="tc-desc">An interactive poem about conversations with my father, inspired by Grace Paley's "My Father Addresses Me on the Facts of Old Age." Literary fiction rendered as a navigable web experience.</p>
-      <div class="tc-stack">
-        <span class="sp">JavaScript</span>
-        <span class="sp">Interactive Fiction</span>
-        <span class="sp">Web3</span>
-      </div>
-      <div class="tc-view">Try it →</div>
     </div>
 
   </div>
@@ -1216,14 +1196,11 @@ footer {
     Find<br><span class="y">Me.</span>
   </div>
   <div class="footer-right reveal">
-    <a href="mailto:fope.ojo@gmail.com" class="fl">
+    <a href="mailto:hello@afopefoluwaojo.com" class="fl">
       <span class="fl-name">Email</span><span class="fl-arr">→</span>
     </a>
     <a href="https://lolwe.org/come-come-lets-go-cycling-in-the-woods/" class="fl" target="_blank">
       <span class="fl-name">Latest Work</span><span class="fl-arr">→</span>
-    </a>
-    <a href="https://github.com/afope" class="fl" target="_blank" rel="noopener noreferrer">
-      <span class="fl-name">GitHub</span><span class="fl-arr">→</span>
     </a>
     <div class="subscribe-field">
       <span class="subscribe-label">Subscribe</span>
