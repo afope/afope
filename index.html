@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Afopefoluwa Ojo — writer and creative technologist.">
 <title>afọpẹ́fólúwa òjó</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://afopefoluwaojo.com/">
+<meta property="og:title" content="Afọpẹ́fólúwa Òjó — writer and creative technologist">
+<meta property="og:description" content="Fiction and code under // àlà //. Lagos · Amsterdam.">
+<meta property="og:image" content="https://afopefoluwaojo.com/media/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Syne:wght@400;700;800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
@@ -586,6 +592,8 @@ main { padding-top: 90px; }
   max-width: 24rem;
   transition: background .3s;
 }
+.tech-card:focus-visible { outline: 2px solid var(--yellow); outline-offset: 6px; }
+.tech-card:focus-visible .wall-label { background: var(--yellow); }
 @media (hover: hover) {
   .tech-card:hover .tc-frame video { transform: scale(1.03); }
   .tech-card:hover .wall-label { background: var(--yellow); }
@@ -638,6 +646,7 @@ main { padding-top: 90px; }
   font-size: clamp(.9rem, 1.4vw, 1.05rem);
   line-height: 1.8; color: var(--white); opacity: .65;
 }
+.about-text + .about-text { margin-top: 1.2rem; }
 .about-text strong { color: var(--white); opacity: 1; font-weight: 700; }
 .tag-cloud { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1.8rem; }
 .atag {
@@ -930,7 +939,7 @@ footer {
   <a href="#" class="nav-logo">// àlà //</a>
   <ul class="nav-links">
     <li><a href="#writing">Writing</a></li>
-    <li><a href="#tech">Tech</a></li>
+    <li><a href="#tech">Gallery</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -1081,11 +1090,11 @@ footer {
 <section id="tech">
   <div class="gallery-masthead reveal">
     <div class="gallery-title">The // àlà // Gallery</div>
-    <div class="gallery-dateline">Creative Technology · 2018 – 2026</div>
+    <div class="gallery-dateline">Creative Technology · 2017 – 2024</div>
   </div>
   <div class="tech-grid">
 
-    <div class="tech-card feature" data-media-type="link" data-media='["https://vertigo-silk.vercel.app/"]' data-title="Colab NowNow · Vertigo">
+    <div tabindex="0" role="link" class="tech-card feature" data-media-type="link" data-media='["https://vertigo-silk.vercel.app/"]' data-title="Colab NowNow · Vertigo">
       <div class="tc-frame">
         <video muted loop playsinline preload="none" poster="media/tech/vertigo.jpg" aria-label="Vertigo running">
           <source src="media/tech/vertigo.webm" type="video/webm">
@@ -1102,7 +1111,7 @@ footer {
       </div>
     </div>
 
-    <div class="tech-card" data-media-type="link" data-media='["https://huggingface.co/spaces/afope/masquerade-classifier"]' data-title="Masquerade Classifier">
+    <div tabindex="0" role="link" class="tech-card" data-media-type="link" data-media='["https://huggingface.co/spaces/afope/masquerade-classifier"]' data-title="Masquerade Classifier">
       <div class="tc-frame">
         <video muted loop playsinline preload="none" poster="media/tech/masquerade.jpg" aria-label="Masquerade Classifier running">
           <source src="media/tech/masquerade.webm" type="video/webm">
@@ -1119,7 +1128,7 @@ footer {
       </div>
     </div>
 
-    <div class="tech-card" data-media-type="images" data-media='["afrikan_poet.JPG", "afrikan_poet_2.JPG"]' data-title="An Afrikan Poet Cries at the Wind">
+    <div tabindex="0" role="link" class="tech-card" data-media-type="images" data-media='["afrikan_poet.JPG", "afrikan_poet_2.JPG"]' data-title="An Afrikan Poet Cries at the Wind">
       <div class="tc-frame">
         <video muted loop playsinline preload="none" poster="media/tech/afrikan-poet.jpg" aria-label="An Afrikan Poet Cries at the Wind running">
           <source src="media/tech/afrikan-poet.webm" type="video/webm">
@@ -1136,7 +1145,7 @@ footer {
       </div>
     </div>
 
-    <div class="tech-card" data-media-type="link" data-media='["https://miliki.ng"]' data-title="MÍLÍKÌ">
+    <div tabindex="0" role="link" class="tech-card" data-media-type="link" data-media='["https://miliki.ng"]' data-title="MÍLÍKÌ">
       <div class="tc-frame">
         <video muted loop playsinline preload="none" poster="media/tech/miliki.jpg" aria-label="MÍLÍKÌ running">
           <source src="media/tech/miliki.webm" type="video/webm">
@@ -1145,7 +1154,7 @@ footer {
       </div>
       <div class="wall-label">
         <div class="wl-artist">Afọpẹ́fólúwa Òjó</div>
-        <h3 class="wl-title">MÍLÍKÌ</h3>
+        <h3 class="wl-title">MÍLÍKÌ, <span class="wl-year">2023</span></h3>
         <div class="wl-medium">Website</div>
         <div class="wl-credit">MÍLÍKÌ, Victoria Island, Lagos · mílíkì.ng</div>
         <p class="wl-desc">Website for MÍLÍKÌ, a cultural lounge in Victoria Island, Lagos.</p>
@@ -1153,7 +1162,7 @@ footer {
       </div>
     </div>
 
-    <div class="tech-card" data-media-type="link" data-media='["https://graceland-flax.vercel.app/"]' data-title="Graceland">
+    <div tabindex="0" role="link" class="tech-card" data-media-type="link" data-media='["https://graceland-flax.vercel.app/"]' data-title="Graceland">
       <div class="tc-frame">
         <video muted loop playsinline preload="none" poster="media/tech/graceland.jpg" aria-label="Graceland running">
           <source src="media/tech/graceland.webm" type="video/webm">
@@ -1162,7 +1171,7 @@ footer {
       </div>
       <div class="wall-label">
         <div class="wl-artist">Afọpẹ́fólúwa Òjó</div>
-        <h3 class="wl-title">Graceland</h3>
+        <h3 class="wl-title">Graceland, <span class="wl-year">2017</span></h3>
         <div class="wl-medium">Interactive poem; JavaScript, Web3</div>
         <div class="wl-credit">On the web</div>
         <p class="wl-desc">Interactive poem — conversations with my father, on the web.</p>
@@ -1193,6 +1202,20 @@ footer {
   <div>
     <p class="about-text reveal">
       Fiction and code under <strong>// àlà //</strong>.
+    </p>
+    <p class="about-text reveal">
+      I’m a writer and creative technologist working between Lagos and Amsterdam.
+      My fiction has been shortlisted for the Iskanchi Magazine Prize, longlisted for the
+      Commonwealth Short Story Prize, the Dzanc Prize and the Elizabeth Jolley Short Story Prize,
+      and published in Lolwe, The Bare Life Review and Necessary Fiction.
+      I’m represented by Alexa Stark at Writers House.
+    </p>
+    <p class="about-text reveal">
+      By day I’m a software engineer at <strong>adidas</strong>, building consumer products,
+      after more than eight years of shipping code across healthcare, blockchain and digital media.
+      My creative technology work moves between generative art, machine learning and
+      interactive poetry, and has been shown at Savvy Contemporary in Berlin and
+      Colab NowNow in Maputo.
     </p>
   </div>
 </section>
@@ -1274,6 +1297,9 @@ const modalClose = document.getElementById('modal-close');
 const modalBackdrop = document.getElementById('modal-backdrop');
 
 document.querySelectorAll('.tech-card[data-media-type]').forEach(card => {
+  card.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+  });
   card.addEventListener('click', () => {
     const type = card.dataset.mediaType;
     const media = JSON.parse(card.dataset.media);
