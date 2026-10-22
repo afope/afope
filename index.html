@@ -355,17 +355,26 @@ main { padding-top: 60px; }
   opacity: .7; text-transform: uppercase;
 }
 
+/* The works sit along a path, alternating sides, labels facing the line */
 .tech-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4.5rem 2.5rem;
+  position: relative;
+  display: flex; flex-direction: column;
+  gap: 8rem; padding: 2rem 0 4rem;
 }
-.tech-card { display: flex; flex-direction: column; gap: 1.25rem; }
-.tech-card.feature {
-  grid-column: span 2;
-  display: grid; grid-template-columns: 2fr 1fr;
-  gap: 2.5rem; align-items: end;
+.tech-card {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 3fr);
+  gap: 2rem; align-items: center; width: 74%;
 }
+.tech-card:nth-child(even) { margin-left: auto; grid-template-columns: minmax(0, 3fr) minmax(0, 5fr); }
+.tech-card:nth-child(even) .tc-frame { order: 2; }
+.tech-card:nth-child(even) .wall-label { justify-self: end; }
+.path-line {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  z-index: 0; pointer-events: none; overflow: visible;
+}
+.path-line path { fill: none; stroke: var(--yellow); stroke-width: 1.5; opacity: .85; }
+.path-line circle { fill: var(--yellow); }
 
 /* The work, running */
 .tc-frame {
@@ -377,8 +386,11 @@ main { padding-top: 60px; }
 .tc-frame video {
   width: 100%; height: 100%;
   object-fit: cover; display: block;
-  transition: transform .6s cubic-bezier(.16,1,.3,1);
+  opacity: .3; filter: grayscale(.8);
+  transition: opacity 1s ease, filter 1s ease, transform .6s cubic-bezier(.16,1,.3,1);
 }
+.tech-card.awake .tc-frame video,
+.tech-card:focus-visible .tc-frame video { opacity: 1; filter: none; }
 
 /* Museum wall label */
 .wall-label {
@@ -652,8 +664,10 @@ footer {
   .np-columns { grid-template-columns: 1fr !important; }
   .np-col { border-right: none !important; padding-left: 0 !important; }
   .np-body.two-col { columns: 1; }
-  .tech-grid { grid-template-columns: 1fr; }
-  .tech-card.feature { grid-column: span 1; grid-template-columns: 1fr; gap: 1.25rem; }
+  .tech-grid { gap: 4.5rem; padding-left: 1.75rem; }
+  .tech-card, .tech-card:nth-child(even) { width: 100%; margin-left: 0; grid-template-columns: 1fr; gap: 1rem; }
+  .tech-card:nth-child(even) .tc-frame { order: 0; }
+  .tech-card:nth-child(even) .wall-label { justify-self: start; }
   .gallery-masthead { flex-direction: column; gap: .5rem; }
   #about { grid-template-columns: 1fr; gap: 2rem; }
   footer { grid-template-columns: 1fr; }
@@ -778,7 +792,7 @@ footer {
   </div>
   <div class="tech-grid">
 
-    <div tabindex="0" role="link" class="tech-card feature" data-media-type="link" data-media='["https://vertigo-silk.vercel.app/"]' data-title="Colab NowNow · Vertigo">
+    <div tabindex="0" role="link" class="tech-card" data-media-type="link" data-media='["https://vertigo-silk.vercel.app/"]' data-title="Colab NowNow · Vertigo">
       <div class="tc-frame">
         <video muted loop playsinline preload="none" poster="media/tech/vertigo.jpg" aria-label="Vertigo running">
           <source src="media/tech/vertigo.webm" type="video/webm">
@@ -953,6 +967,40 @@ const clipObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.25 });
 if (!reduceMotion) document.querySelectorAll('.tc-frame video').forEach(v => clipObs.observe(v));
+
+// Tech gallery: draw the path through the works and wake each one as it is reached
+const techGrid = document.querySelector('.tech-grid');
+const techCards = [...techGrid.querySelectorAll('.tech-card')];
+const pathSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+pathSvg.classList.add('path-line');
+pathSvg.setAttribute('aria-hidden', 'true');
+techGrid.prepend(pathSvg);
+function drawPath() {
+  const g = techGrid.getBoundingClientRect();
+  const narrow = innerWidth <= 900;
+  const pts = techCards.map(c => {
+    const f = c.querySelector('.tc-frame').getBoundingClientRect();
+    return { x: narrow ? 6 : f.left - g.left + f.width / 2, y: f.top - g.top + f.height / 2 };
+  });
+  pts.unshift({ x: narrow ? 6 : g.width / 2, y: 0 });
+  pts.push({ x: narrow ? 6 : g.width / 2, y: g.height });
+  let d = `M ${pts[0].x} ${pts[0].y}`;
+  for (let i = 1; i < pts.length; i++) {
+    const a = pts[i - 1], b = pts[i], dy = (b.y - a.y) / 2;
+    d += ` C ${a.x} ${a.y + dy * 1.7}, ${b.x} ${b.y - dy * 1.7}, ${b.x} ${b.y}`;
+  }
+  pathSvg.setAttribute('viewBox', `0 0 ${g.width} ${g.height}`);
+  pathSvg.innerHTML = `<path d="${d}"/>` +
+    (narrow ? pts.slice(1, -1).map(p => `<circle cx="${p.x}" cy="${p.y}" r="4"/>`).join('') : '');
+}
+new ResizeObserver(drawPath).observe(techGrid);
+if (reduceMotion) techCards.forEach(c => c.classList.add('awake'));
+else {
+  const wakeObs = new IntersectionObserver(entries => {
+    entries.forEach(e => e.target.classList.toggle('awake', e.isIntersecting));
+  }, { rootMargin: '-30% 0px -30% 0px' });
+  techCards.forEach(c => wakeObs.observe(c));
+}
 
 // Media modal
 const modal = document.getElementById('media-modal');
