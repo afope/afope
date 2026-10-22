@@ -80,7 +80,7 @@ main { padding-top: 60px; }
 /* ─── ENTRY ─── */
 #entry {
   position: fixed; inset: 0; z-index: 200;
-  background: var(--black);
+  background: var(--yellow);
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   transition: opacity .8s ease, visibility .8s;
@@ -90,11 +90,11 @@ main { padding-top: 60px; }
 .entry-ala {
   font-family: 'IBM Plex Mono', monospace;
   font-size: clamp(.9rem, 2vw, 1.2rem);
-  color: var(--yellow); letter-spacing: .4em;
+  color: var(--black); letter-spacing: .4em;
 }
 .entry-thread {
   width: 1.5px; height: 22vh; margin: 2rem 0;
-  background: var(--yellow);
+  background: var(--black);
   transform-origin: top;
   animation: drawDown 1.6s cubic-bezier(.16,1,.3,1) .3s both;
 }
@@ -102,11 +102,11 @@ main { padding-top: 60px; }
   background: none; border: none; cursor: inherit;
   font-family: 'IBM Plex Mono', monospace;
   font-size: .65rem; letter-spacing: .4em; text-transform: uppercase;
-  color: var(--white); opacity: .75;
-  padding: .5rem 1rem;
-  transition: color .2s, opacity .2s;
+  color: var(--black); opacity: .75;
+  padding: .5rem 1rem; border-bottom: 1px solid transparent;
+  transition: opacity .2s, border-color .2s;
 }
-.entry-btn:hover, .entry-btn:focus-visible { color: var(--yellow); opacity: 1; outline: none; }
+.entry-btn:hover, .entry-btn:focus-visible { opacity: 1; border-color: var(--black); outline: none; }
 
 /* ─── HERO ─── */
 #hero {
@@ -384,6 +384,16 @@ body.entered .hero-thread { animation: drawDown 1.8s cubic-bezier(.16,1,.3,1) .2
 .tech-card.awake .tc-frame video,
 .tech-card:focus-visible .tc-frame video { opacity: 1; filter: none; }
 
+.commissions {
+  margin-top: 2rem; padding-top: 1.2rem;
+  border-top: 1px solid var(--mid);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .62rem; letter-spacing: .12em; line-height: 1.8;
+  color: var(--white); opacity: .7;
+}
+.commissions a { color: var(--white); text-decoration: none; border-bottom: 1px solid var(--yellow); }
+.commissions a:hover { color: var(--yellow); }
+
 /* Museum wall label */
 .wall-label {
   background: var(--newsprint); color: #111;
@@ -647,7 +657,7 @@ footer {
   <h1 class="hero-name">
     afọpẹ́fólúwa<br><span class="y">òjó</span>
   </h1>
-  <p class="hero-bio">Writes and builds innovative prototypes, between Lagos and Amsterdam.</p>
+  <p class="hero-bio">Writes and builds speculative prototypes, between Lagos and Amsterdam.</p>
   <div class="hero-thread" aria-hidden="true"></div>
 </section>
 
@@ -778,22 +788,6 @@ footer {
       </div>
     </div>
 
-    <div tabindex="0" role="link" class="tech-card" data-media-type="link" data-media='["https://miliki.ng"]' data-title="MÍLÍKÌ">
-      <div class="tc-frame">
-        <video muted loop playsinline preload="none" poster="media/tech/miliki.jpg" aria-label="MÍLÍKÌ running">
-          <source src="media/tech/miliki.webm" type="video/webm">
-          <source src="media/tech/miliki.mp4" type="video/mp4">
-        </video>
-      </div>
-      <div class="wall-label">
-        <h3 class="wl-title">MÍLÍKÌ, <span class="wl-year">2023</span></h3>
-        <div class="wl-medium">Website</div>
-        <div class="wl-credit">MÍLÍKÌ, Victoria Island, Lagos · mílíkì.ng</div>
-        <p class="wl-desc">Website for MÍLÍKÌ, a cultural lounge in Victoria Island, Lagos.</p>
-        <div class="wl-link">Visit site →</div>
-      </div>
-    </div>
-
     <div tabindex="0" role="link" class="tech-card" data-media-type="link" data-media='["https://graceland-flax.vercel.app/"]' data-title="Graceland">
       <div class="tc-frame">
         <video muted loop playsinline preload="none" poster="media/tech/graceland.jpg" aria-label="Graceland running">
@@ -811,6 +805,10 @@ footer {
     </div>
 
   </div>
+  <p class="commissions reveal">
+    Commissions · <a href="https://miliki.ng" target="_blank" rel="noopener">MÍLÍKÌ</a>,
+    website for a cultural lounge in Victoria Island, Lagos, 2023
+  </p>
 </section>
 
 <!-- ─── MEDIA MODAL ─── -->
