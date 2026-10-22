@@ -12,7 +12,7 @@
 <meta property="og:image" content="https://afopefoluwaojo.com/media/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Syne:wght@400;700;800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -33,7 +33,7 @@ section[id], footer[id] { scroll-margin-top: 60px; }
 body {
   background: var(--black);
   color: var(--white);
-  font-family: 'Syne', sans-serif;
+  font-family: 'Playfair Display', serif;
   cursor: none;
   overflow-x: hidden;
 }
@@ -115,12 +115,6 @@ main { padding-top: 60px; }
   padding: 4rem 2.5rem 0;
   position: relative; overflow: hidden;
 }
-.hero-eyebrow {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .6rem; color: var(--red);
-  letter-spacing: .3em; text-transform: uppercase;
-  margin-bottom: 1.2rem;
-}
 .hero-name {
   font-family: 'League Gothic', sans-serif; text-transform: uppercase;
   /* the first name spans the width (it is ~3.8em wide), capped by height */
@@ -128,11 +122,11 @@ main { padding-top: 60px; }
   line-height: 1.1; letter-spacing: -.01em;
 }
 .hero-name .y { color: var(--yellow); }
-.hero-sub {
-  margin-top: 1.5rem;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .7rem; color: var(--white); opacity: .7;
-  letter-spacing: .08em; line-height: 1.9;
+.hero-bio {
+  margin-top: 1.6rem; max-width: 34ch;
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: clamp(1.15rem, 2vw, 1.6rem); line-height: 1.45;
+  color: var(--white);
 }
 /* The thread that runs from the name down into the gallery path */
 .hero-thread {
@@ -433,37 +427,6 @@ body.entered .hero-thread { animation: drawDown 1.8s cubic-bezier(.16,1,.3,1) .2
   border-bottom: 1px solid #111; padding-bottom: 2px;
 }
 
-/* ─── ABOUT ─── */
-#about {
-  border-top: 1px solid var(--mid);
-  padding: 6rem 2.5rem;
-  display: grid; grid-template-columns: 1fr 2fr;
-  gap: 4rem; align-items: start;
-}
-.about-big {
-  font-family: 'League Gothic', sans-serif; text-transform: uppercase;
-  font-size: clamp(3.5rem, 8vw, 7.5rem);
-  line-height: .87; color: var(--white);
-}
-.about-big .y { color: var(--yellow); }
-.about-text {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(.9rem, 1.4vw, 1.05rem);
-  line-height: 1.8; color: var(--white); opacity: .65;
-}
-.about-text + .about-text { margin-top: 1.2rem; }
-.about-text strong { color: var(--white); opacity: 1; font-weight: 700; }
-.tag-cloud { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1.8rem; }
-.atag {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .55rem; letter-spacing: .15em;
-  text-transform: uppercase; padding: .35rem .75rem;
-  border: 1px solid var(--mid); color: var(--white); opacity: .65;
-  transition: opacity .2s, border-color .2s, color .2s;
-  cursor: default;
-}
-.atag:hover { opacity: 1; border-color: var(--yellow); color: var(--yellow); }
-
 /* ─── FOOTER ─── */
 footer {
   padding: 5rem 2.5rem 3rem;
@@ -485,7 +448,7 @@ footer {
   transition: padding-left .3s;
 }
 .fl:hover { padding-left: .5rem; }
-.fl-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; }
+.fl-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; }
 .fl-arr {
   font-family: 'IBM Plex Mono', monospace; font-size: .7rem;
   opacity: .6; transition: opacity .3s, color .3s;
@@ -522,7 +485,7 @@ footer {
   border-bottom: 1px solid var(--mid);
 }
 .subscribe-label {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 1rem; font-weight: 700;
   color: var(--white);
 }
@@ -654,7 +617,6 @@ footer {
   .tech-card:nth-child(even) .tc-frame { order: 0; }
   .tech-card:nth-child(even) .wall-label { justify-self: start; }
   .gallery-masthead { flex-direction: column; gap: .5rem; }
-  #about { grid-template-columns: 1fr; gap: 2rem; }
   footer { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .np-masthead { flex-direction: column; gap: .5rem; }
@@ -678,7 +640,6 @@ footer {
   <ul class="nav-links">
     <li><a href="#writing">Writing</a></li>
     <li><a href="#tech">Gallery</a></li>
-    <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -687,11 +648,10 @@ footer {
 
 <!-- ─── HERO ─── -->
 <section id="hero">
-  <div class="hero-eyebrow">Lagos · Amsterdam</div>
   <h1 class="hero-name">
     afọpẹ́fólúwa<br><span class="y">òjó</span>
   </h1>
-  <p class="hero-sub">Writer · Creative Technologist</p>
+  <p class="hero-bio">Writes and builds innovative prototypes, between Lagos and Amsterdam.</p>
   <div class="hero-thread" aria-hidden="true"></div>
 </section>
 
@@ -872,23 +832,6 @@ footer {
   </div>
 </div>
 
-<!-- ─── ABOUT ─── -->
-<section id="about">
-  <div class="about-big reveal">
-    Engineer<br>
-    <span class="y">Poet</span><br>
-    Interface
-  </div>
-  <div>
-    <p class="about-text reveal">
-      <strong>Afọpẹ́fólúwa Òjó writes and builds innovative prototypes, between Lagos and Amsterdam.</strong>
-    </p>
-    <p class="about-text reveal">
-      She is building ita.ng, a lab where art and technology meet.
-    </p>
-  </div>
-</section>
-
 <!-- ─── FOOTER ─── -->
 <footer id="contact">
   <div class="footer-cta reveal">
@@ -929,7 +872,7 @@ document.addEventListener('mousemove', e => {
   cur.style.left = e.clientX + 'px';
   cur.style.top  = e.clientY + 'px';
 });
-document.querySelectorAll('a, .tech-card, .atag').forEach(el => {
+document.querySelectorAll('a, .tech-card').forEach(el => {
   el.addEventListener('mouseenter', () => cur.classList.add('expand'));
   el.addEventListener('mouseleave', () => cur.classList.remove('expand'));
 });
