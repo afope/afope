@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Afopefoluwa Ojo — writer and creative technologist.">
+<meta name="description" content="Afọpẹ́fólúwa Òjó — writer and creative technologist.">
 <title>afọpẹ́fólúwa òjó</title>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://afopefoluwaojo.com/">
@@ -27,6 +27,8 @@
 }
 
 html { scroll-behavior: smooth; }
+/* Menu links land below the fixed nav */
+section[id], footer[id] { scroll-margin-top: 60px; }
 
 body {
   background: var(--black);
@@ -50,28 +52,9 @@ body {
 }
 .cursor.expand { width: 36px; height: 36px; border-radius: 50%; }
 
-/* ─── TICKER ─── */
-.ticker {
-  position: fixed; top: 0; left: 0; right: 0;
-  z-index: 50; background: var(--yellow);
-  height: 30px; overflow: hidden;
-  display: flex; align-items: center;
-}
-.ticker-track {
-  display: flex; white-space: nowrap;
-  animation: ticker 16s linear infinite;
-}
-.ticker-item {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .65rem; font-weight: 500;
-  color: var(--black); letter-spacing: .15em;
-  text-transform: uppercase; padding: 0 1.5rem;
-}
-.ticker-sep { color: var(--red); padding: 0 .3rem; }
-
 /* ─── NAV ─── */
 nav {
-  position: fixed; top: 30px; left: 0; right: 0;
+  position: fixed; top: 0; left: 0; right: 0;
   z-index: 50; padding: 1.1rem 2.5rem;
   display: flex; justify-content: space-between; align-items: center;
   background: var(--black);
@@ -92,11 +75,11 @@ nav {
 }
 .nav-links a:hover { opacity: 1; color: var(--yellow); }
 
-main { padding-top: 90px; }
+main { padding-top: 60px; }
 
 /* ─── HERO ─── */
 #hero {
-  min-height: calc(100vh - 90px);
+  min-height: calc(100vh - 60px);
   display: grid; grid-template-columns: 1fr 1fr;
   position: relative; overflow: hidden;
 }
@@ -164,25 +147,6 @@ main { padding-top: 90px; }
   background: currentColor;
   animation: growLine 2s ease-in-out infinite;
 }
-
-/* ─── MARQUEE ─── */
-.marquee-row {
-  overflow: hidden; padding: 1.1rem 0;
-  border-top: 1px solid var(--mid);
-  border-bottom: 1px solid var(--mid);
-}
-.marquee-inner {
-  display: flex; white-space: nowrap;
-  animation: ticker 28s linear infinite reverse;
-}
-.marquee-word {
-  font-family: 'League Gothic', sans-serif; text-transform: uppercase;
-  font-size: clamp(2.2rem, 5vw, 4.5rem);
-  color: var(--mid); padding: 0 1rem;
-  transition: color .3s;
-}
-.marquee-word:hover { color: var(--yellow); }
-.marquee-bull { color: var(--red); font-size: .5em; vertical-align: middle; }
 
 /* ─── NEWSPAPER SECTIONS ─── */
 /* The newsprint feel: column rules, old-school headlines, ink texture */
@@ -532,10 +496,6 @@ footer {
 }
 
 /* ─── ANIMATIONS ─── */
-@keyframes ticker {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
 @keyframes drift {
   from { transform: scale(1.02); }
   to   { transform: scale(1.1) translate(-1.5%, -1%); }
@@ -706,16 +666,6 @@ footer {
 
 <div class="cursor" id="cursor"></div>
 
-<!-- ─── TICKER ─── -->
-<div class="ticker">
-  <div class="ticker-track">
-    <span class="ticker-item">Lagos · Amsterdam</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">// àlà //</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">Lagos · Amsterdam</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">// àlà //</span><span class="ticker-sep">✦</span>
-  </div>
-</div>
-
 <!-- ─── NAV ─── -->
 <nav>
   <a href="#" class="nav-logo">// àlà //</a>
@@ -748,18 +698,6 @@ footer {
 
   <div class="hero-divider"></div>
 </section>
-
-<!-- ─── MARQUEE ─── -->
-<div class="marquee-row">
-  <div class="marquee-inner">
-    <span class="marquee-word">Fiction</span><span class="marquee-bull">●</span>
-    <span class="marquee-word">Code</span><span class="marquee-bull">●</span>
-    <span class="marquee-word">// àlà //</span><span class="marquee-bull">●</span>
-    <span class="marquee-word">Fiction</span><span class="marquee-bull">●</span>
-    <span class="marquee-word">Code</span><span class="marquee-bull">●</span>
-    <span class="marquee-word">// àlà //</span><span class="marquee-bull">●</span>
-  </div>
-</div>
 
 <!-- ─── WRITING (NEWSPAPER) ─── -->
 <section id="writing" class="newspaper-section">
@@ -993,7 +931,7 @@ footer {
   </div>
 </footer>
 <div class="footer-bot">
-  <span class="footer-copy">© 2026 Afopefoluwa Ojo · All rights reserved</span>
+  <span class="footer-copy">© 2026 Afọpẹ́fólúwa Òjó · All rights reserved</span>
   <span class="footer-ala">// àlà //</span>
 </div>
 
@@ -1006,7 +944,7 @@ document.addEventListener('mousemove', e => {
   cur.style.left = e.clientX + 'px';
   cur.style.top  = e.clientY + 'px';
 });
-document.querySelectorAll('a, .marquee-word, .tech-card, .atag').forEach(el => {
+document.querySelectorAll('a, .tech-card, .atag').forEach(el => {
   el.addEventListener('mouseenter', () => cur.classList.add('expand'));
   el.addEventListener('mouseleave', () => cur.classList.remove('expand'));
 });
