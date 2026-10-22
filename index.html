@@ -6,7 +6,7 @@
 <meta name="description" content="Afopefoluwa Ojo — writer and creative technologist.">
 <title>afọpẹ́fólúwa òjó</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Syne:wght@400;700;800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Syne:wght@400;700;800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -67,9 +67,9 @@ body {
   animation: breathe 2.5s ease-in-out infinite;
 }
 .entry-name-big {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(5rem, 18vw, 16rem);
-  line-height: .82;
+  font-family: 'League Gothic', sans-serif; text-transform: uppercase;
+  font-size: clamp(4rem, min(18vw, 20vh), 16rem);
+  line-height: 1.1;
   text-align: center;
   letter-spacing: -.01em;
 }
@@ -84,7 +84,7 @@ body {
   margin-top: 2.5rem;
   font-family: 'IBM Plex Mono', monospace;
   font-size: .65rem; letter-spacing: .25em;
-  color: var(--white); opacity: .25;
+  color: var(--white); opacity: .6;
   text-transform: uppercase;
   animation: blink 1.6s step-end infinite;
 }
@@ -129,6 +129,8 @@ nav {
   position: fixed; top: 30px; left: 0; right: 0;
   z-index: 50; padding: 1.1rem 2.5rem;
   display: flex; justify-content: space-between; align-items: center;
+  background: var(--black);
+  border-bottom: 1px solid var(--mid);
 }
 .nav-logo {
   font-family: 'IBM Plex Mono', monospace;
@@ -140,7 +142,7 @@ nav {
   font-family: 'IBM Plex Mono', monospace;
   font-size: .6rem; color: var(--white);
   text-decoration: none; letter-spacing: .2em;
-  text-transform: uppercase; opacity: .4;
+  text-transform: uppercase; opacity: .75;
   transition: opacity .2s, color .2s;
 }
 .nav-links a:hover { opacity: 1; color: var(--yellow); }
@@ -165,15 +167,15 @@ main { padding-top: 90px; }
   margin-bottom: 1.2rem;
 }
 .hero-name {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'League Gothic', sans-serif; text-transform: uppercase;
   font-size: clamp(5rem, 10vw, 9rem);
-  line-height: .86; letter-spacing: -.01em;
+  line-height: 1.1; letter-spacing: -.01em;
 }
 .hero-name .y { color: var(--yellow); }
 .hero-sub {
   margin-top: 1.8rem;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: .7rem; color: var(--white); opacity: .35;
+  font-size: .7rem; color: var(--white); opacity: .7;
   letter-spacing: .08em; line-height: 1.9;
 }
 
@@ -317,7 +319,7 @@ main { padding-top: 90px; }
   position: absolute; bottom: 2rem; left: 2.5rem;
   font-family: 'IBM Plex Mono', monospace;
   font-size: .55rem; letter-spacing: .25em;
-  color: var(--white); opacity: .2; text-transform: uppercase;
+  color: var(--white); opacity: .5; text-transform: uppercase;
   display: flex; align-items: center; gap: .75rem; z-index: 2;
 }
 .scroll-hint::before {
@@ -337,7 +339,7 @@ main { padding-top: 90px; }
   animation: ticker 28s linear infinite reverse;
 }
 .marquee-word {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'League Gothic', sans-serif; text-transform: uppercase;
   font-size: clamp(2.2rem, 5vw, 4.5rem);
   color: var(--mid); padding: 0 1rem;
   transition: color .3s;
@@ -508,7 +510,7 @@ main { padding-top: 90px; }
   background: rgba(0,0,0,.03);
 }
 .np-awards-box-title {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'League Gothic', sans-serif; text-transform: uppercase;
   font-size: 1rem; letter-spacing: .15em;
   border-bottom: 1px solid rgba(0,0,0,.2);
   padding-bottom: .5rem; margin-bottom: .75rem;
@@ -535,70 +537,87 @@ main { padding-top: 90px; }
 }
 .section-label::after { content: ''; flex: 1; height: 1px; background: var(--mid); }
 
+/* Gallery masthead, mirrors the newspaper's */
+.gallery-masthead {
+  border-bottom: 3px double var(--mid);
+  padding-bottom: 1rem; margin-bottom: 3rem;
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.gallery-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900; letter-spacing: -.02em; line-height: 1;
+}
+.gallery-dateline {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .6rem; letter-spacing: .15em;
+  opacity: .7; text-transform: uppercase;
+}
+
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1px; background: var(--mid);
-  border: 1px solid var(--mid);
+  gap: 4.5rem 2.5rem;
 }
-.tech-card {
-  background: var(--black);
-  padding: 2.5rem 2rem;
-  position: relative; overflow: hidden;
+.tech-card { display: flex; flex-direction: column; gap: 1.25rem; }
+.tech-card.feature {
+  grid-column: span 2;
+  display: grid; grid-template-columns: 2fr 1fr;
+  gap: 2.5rem; align-items: end;
+}
+
+/* The work, running */
+.tc-frame {
+  aspect-ratio: 16 / 10;
+  background: var(--grey);
+  border: 1px solid var(--mid);
+  overflow: hidden;
+}
+.tc-frame video {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform .6s cubic-bezier(.16,1,.3,1);
+}
+
+/* Museum wall label */
+.wall-label {
+  background: var(--newsprint); color: #111;
+  padding: 1.1rem 1.3rem 1.2rem;
+  max-width: 24rem;
   transition: background .3s;
 }
-.tech-card.hero-card {
-  grid-column: span 2;
-  background: var(--grey);
+@media (hover: hover) {
+  .tech-card:hover .tc-frame video { transform: scale(1.03); }
+  .tech-card:hover .wall-label { background: var(--yellow); }
 }
-.tech-card::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: var(--yellow);
-  transform: translateY(101%);
-  transition: transform .45s cubic-bezier(.16,1,.3,1);
-  z-index: 0;
+.wl-artist {
+  font-family: 'Playfair Display', serif;
+  font-size: .85rem; font-weight: 700;
 }
-.tech-card:hover::before { transform: translateY(0); }
-.tech-card:hover .tc-title,
-.tech-card:hover .tc-desc,
-.tech-card:hover .tc-tag { color: var(--black); border-color: rgba(0,0,0,.2); }
-.tech-card:hover .sp { background: rgba(0,0,0,.12); color: #000; }
-.tech-card > * { position: relative; z-index: 1; }
-
-.tc-tag {
-  display: inline-block;
+.wl-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem; font-weight: 700; font-style: italic;
+  line-height: 1.2; margin-top: .15rem;
+}
+.wl-title .wl-year { font-style: normal; font-weight: 400; }
+.wl-medium, .wl-credit {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: .5rem; letter-spacing: .2em;
-  text-transform: uppercase; padding: .25rem .6rem;
-  border: 1px solid var(--mid); color: var(--white);
-  opacity: .5; margin-bottom: 1.5rem;
-  transition: color .3s, border-color .3s, opacity .3s;
+  font-size: .62rem; line-height: 1.6;
+  margin-top: .5rem;
 }
-.tech-card.hero-card .tc-tag { border-color: var(--yellow); color: var(--yellow); opacity: 1; }
-.tech-card:hover .tc-tag { opacity: 1; }
-
-.tc-title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
-  font-weight: 800; line-height: 1.15;
-  margin-bottom: .9rem;
-  transition: color .3s;
+.wl-credit { margin-top: .15rem; opacity: .65; }
+.wl-desc {
+  font-family: 'Playfair Display', serif;
+  font-size: .92rem; line-height: 1.55;
+  margin-top: .8rem; padding-top: .8rem;
+  border-top: 1px solid rgba(0,0,0,.15);
 }
-.tc-desc {
+.wl-link {
+  display: inline-block; margin-top: .9rem;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: .65rem; line-height: 1.8;
-  color: var(--white); opacity: .45;
-  transition: color .3s, opacity .3s;
-}
-.tech-card:hover .tc-desc { opacity: .75; }
-.tc-stack { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: 1.2rem; }
-.sp {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .5rem; letter-spacing: .1em;
-  padding: .2rem .55rem;
-  background: var(--mid); color: var(--white);
-  opacity: .7; transition: background .3s, color .3s;
+  font-size: .58rem; letter-spacing: .2em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #111; padding-bottom: 2px;
 }
 
 /* ─── ABOUT ─── */
@@ -609,7 +628,7 @@ main { padding-top: 90px; }
   gap: 4rem; align-items: start;
 }
 .about-big {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'League Gothic', sans-serif; text-transform: uppercase;
   font-size: clamp(3.5rem, 8vw, 7.5rem);
   line-height: .87; color: var(--white);
 }
@@ -625,7 +644,7 @@ main { padding-top: 90px; }
   font-family: 'IBM Plex Mono', monospace;
   font-size: .55rem; letter-spacing: .15em;
   text-transform: uppercase; padding: .35rem .75rem;
-  border: 1px solid var(--mid); color: var(--white); opacity: .35;
+  border: 1px solid var(--mid); color: var(--white); opacity: .65;
   transition: opacity .2s, border-color .2s, color .2s;
   cursor: default;
 }
@@ -638,7 +657,7 @@ footer {
   gap: 3rem; align-items: end;
 }
 .footer-cta {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'League Gothic', sans-serif; text-transform: uppercase;
   font-size: clamp(3.5rem, 9vw, 9rem);
   line-height: .82; color: var(--white);
 }
@@ -655,7 +674,7 @@ footer {
 .fl-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; }
 .fl-arr {
   font-family: 'IBM Plex Mono', monospace; font-size: .7rem;
-  opacity: .3; transition: opacity .3s, color .3s;
+  opacity: .6; transition: opacity .3s, color .3s;
 }
 .fl:hover .fl-arr { opacity: 1; color: var(--yellow); }
 .footer-bot {
@@ -665,11 +684,11 @@ footer {
 }
 .footer-copy {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: .55rem; color: var(--white); opacity: .18; letter-spacing: .1em;
+  font-size: .55rem; color: var(--white); opacity: .5; letter-spacing: .1em;
 }
 .footer-ala {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: .55rem; color: var(--yellow); letter-spacing: .35em; opacity: .5;
+  font-size: .55rem; color: var(--yellow); letter-spacing: .35em; opacity: .8;
 }
 
 /* ─── ANIMATIONS ─── */
@@ -752,7 +771,7 @@ footer {
   font-family: 'IBM Plex Mono', monospace;
   font-size: .55rem; letter-spacing: .15em;
   text-transform: uppercase;
-  color: var(--white); opacity: .3;
+  color: var(--white); opacity: .6;
 }
 .subscribe-form {
   display: flex; gap: .5rem; margin-top: .4rem;
@@ -771,7 +790,7 @@ footer {
   cursor: none;
 }
 .subscribe-input::placeholder {
-  color: var(--white); opacity: .2;
+  color: var(--white); opacity: .45;
 }
 .subscribe-input:focus {
   border-color: var(--yellow);
@@ -800,16 +819,6 @@ footer {
 .subscribe-field { display: none; }
 
 /* ─── MEDIA MODAL ─── */
-.tc-view {
-  margin-top: 1.5rem;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .6rem; letter-spacing: .2em;
-  text-transform: uppercase; color: var(--yellow);
-  opacity: 0; transform: translateY(4px);
-  transition: opacity .3s, transform .3s;
-}
-.tech-card:hover .tc-view { opacity: 1; transform: translateY(0); }
-.tech-card:hover .tc-view { color: var(--black); }
 
 .media-modal {
   position: fixed; inset: 0;
@@ -882,7 +891,8 @@ footer {
   .np-col { border-right: none !important; padding-left: 0 !important; }
   .np-body.two-col { columns: 1; }
   .tech-grid { grid-template-columns: 1fr; }
-  .tech-card.hero-card { grid-column: span 1; }
+  .tech-card.feature { grid-column: span 1; grid-template-columns: 1fr; gap: 1.25rem; }
+  .gallery-masthead { flex-direction: column; gap: .5rem; }
   #about { grid-template-columns: 1fr; gap: 2rem; }
   footer { grid-template-columns: 1fr; }
   .nav-links { display: none; }
@@ -1069,68 +1079,95 @@ footer {
 
 <!-- ─── TECH ─── -->
 <section id="tech">
-  <div class="section-label reveal">Creative Technology</div>
-  <div class="tech-grid reveal">
+  <div class="gallery-masthead reveal">
+    <div class="gallery-title">The // àlà // Gallery</div>
+    <div class="gallery-dateline">Creative Technology · 2018 – 2026</div>
+  </div>
+  <div class="tech-grid">
 
-    <div class="tech-card" data-media-type="link" data-media='["https://vertigo-silk.vercel.app/"]' data-title="Colab NowNow · Vertigo">
-      <div class="tc-tag">2018 · Maputo · Colab NowNow</div>
-      <h3 class="tc-title">Vertigo</h3>
-      <p class="tc-desc">Generative web piece — photography and p5.js in the browser.</p>
-      <div class="tc-stack">
-        <span class="sp">p5.js</span>
-        <span class="sp">Installation</span>
-        <span class="sp">British Council</span>
-        <span class="sp">Generative Art</span>
+    <div class="tech-card feature" data-media-type="link" data-media='["https://vertigo-silk.vercel.app/"]' data-title="Colab NowNow · Vertigo">
+      <div class="tc-frame">
+        <video muted loop playsinline preload="none" poster="media/tech/vertigo.jpg" aria-label="Vertigo running">
+          <source src="media/tech/vertigo.webm" type="video/webm">
+          <source src="media/tech/vertigo.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="tc-view">Try it →</div>
+      <div class="wall-label">
+        <div class="wl-artist">Afọpẹ́fólúwa Òjó</div>
+        <h3 class="wl-title">Vertigo, <span class="wl-year">2018</span></h3>
+        <div class="wl-medium">Generative installation; p5.js, photography, web browser</div>
+        <div class="wl-credit">Colab NowNow, Maputo · British Council</div>
+        <p class="wl-desc">Generative web piece — photography and p5.js in the browser.</p>
+        <div class="wl-link">Try it →</div>
+      </div>
     </div>
 
     <div class="tech-card" data-media-type="link" data-media='["https://huggingface.co/spaces/afope/masquerade-classifier"]' data-title="Masquerade Classifier">
-      <div class="tc-tag">2024 · Hugging Face</div>
-      <h3 class="tc-title">Masquerade Classifier</h3>
-      <p class="tc-desc">Classify Gelede, Egungun, and Agemo masquerades from images.</p>
-      <div class="tc-stack">
-        <span class="sp">ResNet18</span>
-        <span class="sp">PyTorch</span>
-        <span class="sp">Gradio</span>
+      <div class="tc-frame">
+        <video muted loop playsinline preload="none" poster="media/tech/masquerade.jpg" aria-label="Masquerade Classifier running">
+          <source src="media/tech/masquerade.webm" type="video/webm">
+          <source src="media/tech/masquerade.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="tc-view">Try it →</div>
+      <div class="wall-label">
+        <div class="wl-artist">Afọpẹ́fólúwa Òjó</div>
+        <h3 class="wl-title">Masquerade Classifier, <span class="wl-year">2024</span></h3>
+        <div class="wl-medium">ResNet18 image model; PyTorch, Gradio</div>
+        <div class="wl-credit">Hugging Face Spaces</div>
+        <p class="wl-desc">Classify Gelede, Egungun, and Agemo masquerades from images. Shown here reading the artist’s portrait as Egungun.</p>
+        <div class="wl-link">Try it →</div>
+      </div>
     </div>
 
     <div class="tech-card" data-media-type="images" data-media='["afrikan_poet.JPG", "afrikan_poet_2.JPG"]' data-title="An Afrikan Poet Cries at the Wind">
-      <div class="tc-tag">2020 · Savvy Contemporary, Berlin</div>
-      <h3 class="tc-title">An Afrikan Poet Cries at the Wind</h3>
-      <p class="tc-desc">Poems from the internet, sent one at a time to subscribers.</p>
-      <div class="tc-stack">
-        <span class="sp">Archive</span>
-        <span class="sp">Distribution</span>
-        <span class="sp">Poetry</span>
+      <div class="tc-frame">
+        <video muted loop playsinline preload="none" poster="media/tech/afrikan-poet.jpg" aria-label="An Afrikan Poet Cries at the Wind running">
+          <source src="media/tech/afrikan-poet.webm" type="video/webm">
+          <source src="media/tech/afrikan-poet.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="tc-view">View project →</div>
+      <div class="wall-label">
+        <div class="wl-artist">Afọpẹ́fólúwa Òjó</div>
+        <h3 class="wl-title">An Afrikan Poet Cries at the Wind, <span class="wl-year">2020</span></h3>
+        <div class="wl-medium">Archive, distribution, poetry</div>
+        <div class="wl-credit">Savvy Contemporary, Berlin</div>
+        <p class="wl-desc">Poems from the internet, sent one at a time to subscribers.</p>
+        <div class="wl-link">View installation →</div>
+      </div>
     </div>
 
     <div class="tech-card" data-media-type="link" data-media='["https://miliki.ng"]' data-title="MÍLÍKÌ">
-      <div class="tc-tag">Web · Lagos · mílíkì.ng</div>
-      <h3 class="tc-title">MÍLÍKÌ</h3>
-      <p class="tc-desc">Website for MÍLÍKÌ, a cultural lounge in Victoria Island, Lagos.</p>
-      <div class="tc-stack">
-        <span class="sp">Web</span>
-        <span class="sp">Lagos</span>
-        <span class="sp">Cultural Institution</span>
+      <div class="tc-frame">
+        <video muted loop playsinline preload="none" poster="media/tech/miliki.jpg" aria-label="MÍLÍKÌ running">
+          <source src="media/tech/miliki.webm" type="video/webm">
+          <source src="media/tech/miliki.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="tc-view">Visit site →</div>
+      <div class="wall-label">
+        <div class="wl-artist">Afọpẹ́fólúwa Òjó</div>
+        <h3 class="wl-title">MÍLÍKÌ</h3>
+        <div class="wl-medium">Website</div>
+        <div class="wl-credit">MÍLÍKÌ, Victoria Island, Lagos · mílíkì.ng</div>
+        <p class="wl-desc">Website for MÍLÍKÌ, a cultural lounge in Victoria Island, Lagos.</p>
+        <div class="wl-link">Visit site →</div>
+      </div>
     </div>
 
     <div class="tech-card" data-media-type="link" data-media='["https://graceland-flax.vercel.app/"]' data-title="Graceland">
-      <div class="tc-tag">Interactive Poetry · Web</div>
-      <h3 class="tc-title">Graceland</h3>
-      <p class="tc-desc">Interactive poem — conversations with my father, on the web.</p>
-      <div class="tc-stack">
-        <span class="sp">JavaScript</span>
-        <span class="sp">Interactive Fiction</span>
-        <span class="sp">Web3</span>
+      <div class="tc-frame">
+        <video muted loop playsinline preload="none" poster="media/tech/graceland.jpg" aria-label="Graceland running">
+          <source src="media/tech/graceland.webm" type="video/webm">
+          <source src="media/tech/graceland.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="tc-view">Try it →</div>
+      <div class="wall-label">
+        <div class="wl-artist">Afọpẹ́fólúwa Òjó</div>
+        <h3 class="wl-title">Graceland</h3>
+        <div class="wl-medium">Interactive poem; JavaScript, Web3</div>
+        <div class="wl-credit">On the web</div>
+        <p class="wl-desc">Interactive poem — conversations with my father, on the web.</p>
+        <div class="wl-link">Try it →</div>
+      </div>
     </div>
 
   </div>
@@ -1166,6 +1203,9 @@ footer {
     Find<br><span class="y">Me.</span>
   </div>
   <div class="footer-right reveal">
+    <a href="mailto:fope.ojo@gmail.com" class="fl">
+      <span class="fl-name">Email</span><span class="fl-arr">→</span>
+    </a>
     <a href="https://lolwe.org/come-come-lets-go-cycling-in-the-woods/" class="fl" target="_blank">
       <span class="fl-name">Latest Work</span><span class="fl-arr">→</span>
     </a>
@@ -1215,6 +1255,16 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Tech gallery: play each work while it is on screen
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const clipObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.play().catch(() => {});
+    else e.target.pause();
+  });
+}, { threshold: 0.25 });
+if (!reduceMotion) document.querySelectorAll('.tc-frame video').forEach(v => clipObs.observe(v));
 
 // Media modal
 const modal = document.getElementById('media-modal');
