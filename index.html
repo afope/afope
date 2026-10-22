@@ -3,10 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Afopefoluwa Ojo — writer and creative technologist.">
+<meta name="description" content="Afọpẹ́fólúwa Òjó — writer and creative technologist.">
 <title>afọpẹ́fólúwa òjó</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://afopefoluwaojo.com/">
+<meta property="og:title" content="Afọpẹ́fólúwa Òjó — writer and creative technologist">
+<meta property="og:description" content="Writes and builds speculative prototypes. àlá, a dreamscape. Lagos · Amsterdam.">
+<meta property="og:image" content="https://afopefoluwaojo.com/media/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Syne:wght@400;700;800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -18,17 +24,16 @@
   --red: #FF2800;
   --grey: #1a1a1a;
   --mid: #2a2a2a;
-  --clay-orange: #E8733A;
-  --clay-blue: #3A7BE8;
-  --clay-green: #4CAF6B;
 }
 
 html { scroll-behavior: smooth; }
+/* Menu links land below the fixed nav */
+section[id], footer[id] { scroll-margin-top: 60px; }
 
 body {
   background: var(--black);
   color: var(--white);
-  font-family: 'Syne', sans-serif;
+  font-family: 'Playfair Display', serif;
   cursor: none;
   overflow-x: hidden;
 }
@@ -47,88 +52,13 @@ body {
 }
 .cursor.expand { width: 36px; height: 36px; border-radius: 50%; }
 
-/* ─── ENTRY ─── */
-#entry {
-  position: fixed; inset: 0;
-  background: var(--black);
-  z-index: 200;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  transition: opacity .7s ease, visibility .7s;
-}
-#entry.gone { opacity: 0; visibility: hidden; pointer-events: none; }
-
-.entry-ala {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: clamp(.8rem, 2vw, 1.1rem);
-  color: var(--yellow);
-  letter-spacing: .4em;
-  margin-bottom: 2.5rem;
-  animation: breathe 2.5s ease-in-out infinite;
-}
-.entry-name-big {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(5rem, 18vw, 16rem);
-  line-height: .82;
-  text-align: center;
-  letter-spacing: -.01em;
-}
-.entry-name-big .line { overflow: hidden; display: block; }
-.entry-name-big .line em {
-  display: block; font-style: normal;
-  animation: riseIn .9s cubic-bezier(.16,1,.3,1) both;
-}
-.entry-name-big .line:nth-child(2) em { animation-delay: .08s; }
-.entry-name-big .line:nth-child(3) em { animation-delay: .16s; color: var(--yellow); }
-.entry-prompt {
-  margin-top: 2.5rem;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .65rem; letter-spacing: .25em;
-  color: var(--white); opacity: .25;
-  text-transform: uppercase;
-  animation: blink 1.6s step-end infinite;
-}
-
-/* 3D CLAY OBJECTS on entry */
-.clay-scene {
-  position: absolute; inset: 0;
-  pointer-events: none;
-  perspective: 900px;
-}
-.clay-obj {
-  position: absolute;
-  transform-style: preserve-3d;
-  animation: floatClay 6s ease-in-out infinite;
-}
-.clay-obj:nth-child(2) { animation-delay: -2s; animation-duration: 7s; }
-.clay-obj:nth-child(3) { animation-delay: -4s; animation-duration: 5.5s; }
-.clay-obj:nth-child(4) { animation-delay: -1s; animation-duration: 8s; }
-.clay-obj:nth-child(5) { animation-delay: -3s; animation-duration: 6.5s; }
-
-/* ─── TICKER ─── */
-.ticker {
-  position: fixed; top: 0; left: 0; right: 0;
-  z-index: 50; background: var(--yellow);
-  height: 30px; overflow: hidden;
-  display: flex; align-items: center;
-}
-.ticker-track {
-  display: flex; white-space: nowrap;
-  animation: ticker 16s linear infinite;
-}
-.ticker-item {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .65rem; font-weight: 500;
-  color: var(--black); letter-spacing: .15em;
-  text-transform: uppercase; padding: 0 1.5rem;
-}
-.ticker-sep { color: var(--red); padding: 0 .3rem; }
-
 /* ─── NAV ─── */
 nav {
-  position: fixed; top: 30px; left: 0; right: 0;
+  position: fixed; top: 0; left: 0; right: 0;
   z-index: 50; padding: 1.1rem 2.5rem;
   display: flex; justify-content: space-between; align-items: center;
+  background: var(--black);
+  border-bottom: 1px solid var(--mid);
 }
 .nav-logo {
   font-family: 'IBM Plex Mono', monospace;
@@ -140,210 +70,44 @@ nav {
   font-family: 'IBM Plex Mono', monospace;
   font-size: .6rem; color: var(--white);
   text-decoration: none; letter-spacing: .2em;
-  text-transform: uppercase; opacity: .4;
+  text-transform: uppercase; opacity: .75;
   transition: opacity .2s, color .2s;
 }
 .nav-links a:hover { opacity: 1; color: var(--yellow); }
 
-main { padding-top: 90px; }
+main { padding-top: 60px; }
 
 /* ─── HERO ─── */
 #hero {
-  min-height: 100vh;
-  display: grid; grid-template-columns: 1fr 1fr;
-  position: relative; overflow: hidden;
-}
-.hero-left {
-  padding: 5rem 2.5rem 4rem;
+  min-height: calc(100vh - 60px);
   display: flex; flex-direction: column;
-  justify-content: flex-end; position: relative; z-index: 2;
-}
-.hero-eyebrow {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .6rem; color: var(--red);
-  letter-spacing: .3em; text-transform: uppercase;
-  margin-bottom: 1.2rem;
+  padding: 4rem 2.5rem 0;
+  position: relative; overflow: hidden;
 }
 .hero-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(5rem, 10vw, 9rem);
-  line-height: .86; letter-spacing: -.01em;
+  font-family: 'League Gothic', sans-serif; text-transform: uppercase;
+  /* the first name spans the width (it is ~3.8em wide), capped by height */
+  font-size: min(calc((100vw - 5rem) / 3.85), 26vh);
+  line-height: 1.1; letter-spacing: -.01em;
 }
 .hero-name .y { color: var(--yellow); }
-.hero-sub {
-  margin-top: 1.8rem;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .7rem; color: var(--white); opacity: .35;
-  letter-spacing: .08em; line-height: 1.9;
+.hero-bio {
+  margin-top: 1.6rem; max-width: 34ch;
+  font-family: 'Playfair Display', serif; font-weight: 400;
+  font-size: clamp(1.15rem, 2vw, 1.6rem); line-height: 1.45;
+  color: var(--white);
 }
-
-/* 3D CLAY OBJECTS in hero right */
-.hero-right {
-  position: relative; overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
+/* The thread that runs from the name down into the gallery path */
+.hero-thread {
+  flex: 1; min-height: 5rem;
+  width: 1.5px; margin-top: 2rem;
+  background: var(--yellow);
+  transform-origin: top;
+  animation: drawDown 1.8s cubic-bezier(.16,1,.3,1) .4s both;
 }
-.hero-clay-stage {
-  position: relative;
-  width: 100%; height: 100%;
-  perspective: 800px;
-  display: flex; align-items: center; justify-content: center;
+@media (prefers-reduced-motion: reduce) {
+  .hero-thread { animation: none; }
 }
-
-/* ─── THE CLAY OBJECTS ─── */
-/* Chunky 3D CSS shapes — the Speed Demon claymation spirit */
-
-.shape-wrap {
-  position: absolute;
-  transform-style: preserve-3d;
-  cursor: none;
-}
-.shape-wrap:hover { z-index: 10; }
-
-/* CUBE */
-.cube {
-  width: 90px; height: 90px;
-  transform-style: preserve-3d;
-  animation: spinCube 10s linear infinite;
-}
-.cube-face {
-  position: absolute;
-  width: 90px; height: 90px;
-  border: 3px solid rgba(0,0,0,.25);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .55rem; letter-spacing: .15em;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-.cf-front  { background: var(--clay-orange); transform: translateZ(45px); color: #000; }
-.cf-back   { background: #c45a22;            transform: rotateY(180deg) translateZ(45px); color: #000; }
-.cf-left   { background: #b04d1a;            transform: rotateY(-90deg) translateZ(45px); color: rgba(0,0,0,.5); }
-.cf-right  { background: #d96830;            transform: rotateY(90deg) translateZ(45px);  color: rgba(0,0,0,.5); }
-.cf-top    { background: #f0894e;            transform: rotateX(90deg) translateZ(45px);  color: rgba(0,0,0,.4); }
-.cf-bottom { background: #9a3e10;            transform: rotateX(-90deg) translateZ(45px); color: rgba(0,0,0,.2); }
-
-/* SPHERE (approximated with border-radius + layered shadows) */
-.sphere {
-  width: 110px; height: 110px;
-  background: radial-gradient(circle at 35% 30%, #6AAFF5, var(--clay-blue) 55%, #1a4a9e);
-  border-radius: 50%;
-  box-shadow:
-    inset -12px -12px 24px rgba(0,0,0,.35),
-    inset 8px 8px 16px rgba(255,255,255,.2),
-    6px 12px 24px rgba(0,0,0,.5);
-  animation: bobSphere 5s ease-in-out infinite;
-}
-
-/* PYRAMID */
-.pyramid-wrap {
-  width: 100px; height: 90px;
-  transform-style: preserve-3d;
-  animation: spinPyramid 12s linear infinite;
-}
-.pyramid-face {
-  position: absolute;
-  width: 0; height: 0;
-  transform-origin: 50% 100%;
-}
-.pf1 {
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 90px solid var(--clay-green);
-  filter: brightness(1);
-  transform: rotateX(25deg) translateZ(20px) translateX(0px);
-}
-.pf2 {
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 90px solid #3a8a55;
-  transform: rotateY(120deg) rotateX(25deg) translateZ(20px);
-  filter: brightness(.8);
-}
-.pf3 {
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 90px solid #2d6b42;
-  transform: rotateY(240deg) rotateX(25deg) translateZ(20px);
-  filter: brightness(.65);
-}
-
-/* PILL / CAPSULE */
-.pill {
-  width: 140px; height: 60px;
-  background: linear-gradient(135deg, #f5d86a, var(--yellow) 50%, #c9a800);
-  border-radius: 30px;
-  box-shadow:
-    inset -8px -6px 16px rgba(0,0,0,.3),
-    inset 6px 5px 12px rgba(255,255,255,.35),
-    4px 8px 20px rgba(0,0,0,.45);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .55rem; color: #000;
-  letter-spacing: .2em; font-weight: 500;
-  animation: rotatePill 8s ease-in-out infinite;
-}
-
-/* DONUT / TORUS (CSS approximation) */
-.donut {
-  width: 100px; height: 100px;
-  border-radius: 50%;
-  border: 22px solid var(--red);
-  box-shadow:
-    inset 0 0 0 4px #b01c00,
-    0 8px 20px rgba(255,40,0,.4),
-    inset 0 6px 12px rgba(255,255,255,.2);
-  animation: spinDonut 7s linear infinite;
-}
-
-/* POSITION the shapes */
-.sw-cube    { top: 12%; left: 10%; }
-.sw-sphere  { top: 8%;  right: 12%; }
-.sw-pyramid { bottom: 20%; left: 18%; }
-.sw-pill    { bottom: 12%; right: 8%; }
-.sw-donut   { top: 48%; right: 22%; }
-
-/* Floating animation for each */
-.sw-cube    { animation: float1 6s ease-in-out infinite; }
-.sw-sphere  { animation: float2 7s ease-in-out infinite; }
-.sw-pyramid { animation: float3 5.5s ease-in-out infinite; }
-.sw-pill    { animation: float4 8s ease-in-out infinite; }
-.sw-donut   { animation: float5 6.5s ease-in-out infinite; }
-
-.hero-divider {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 1px; background: var(--mid);
-}
-.scroll-hint {
-  position: absolute; bottom: 2rem; left: 2.5rem;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .55rem; letter-spacing: .25em;
-  color: var(--white); opacity: .2; text-transform: uppercase;
-  display: flex; align-items: center; gap: .75rem; z-index: 2;
-}
-.scroll-hint::before {
-  content: ''; width: 50px; height: 1px;
-  background: currentColor;
-  animation: growLine 2s ease-in-out infinite;
-}
-
-/* ─── MARQUEE ─── */
-.marquee-row {
-  overflow: hidden; padding: 1.1rem 0;
-  border-top: 1px solid var(--mid);
-  border-bottom: 1px solid var(--mid);
-}
-.marquee-inner {
-  display: flex; white-space: nowrap;
-  animation: ticker 28s linear infinite reverse;
-}
-.marquee-word {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(2.2rem, 5vw, 4.5rem);
-  color: var(--mid); padding: 0 1rem;
-  transition: color .3s;
-}
-.marquee-word:hover { color: var(--yellow); }
-.marquee-bull { color: var(--red); font-size: .5em; vertical-align: middle; }
 
 /* ─── NEWSPAPER SECTIONS ─── */
 /* The newsprint feel: column rules, old-school headlines, ink texture */
@@ -389,11 +153,6 @@ main { padding-top: 90px; }
   font-weight: 900;
   letter-spacing: -.02em;
   line-height: 1;
-}
-.np-dateline {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .6rem; letter-spacing: .15em;
-  opacity: .5; text-transform: uppercase;
 }
 .np-rule { border: none; border-top: 1px solid #111; margin: 0; opacity: .3; }
 
@@ -508,7 +267,7 @@ main { padding-top: 90px; }
   background: rgba(0,0,0,.03);
 }
 .np-awards-box-title {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'League Gothic', sans-serif; text-transform: uppercase;
   font-size: 1rem; letter-spacing: .15em;
   border-bottom: 1px solid rgba(0,0,0,.2);
   padding-bottom: .5rem; margin-bottom: .75rem;
@@ -535,101 +294,93 @@ main { padding-top: 90px; }
 }
 .section-label::after { content: ''; flex: 1; height: 1px; background: var(--mid); }
 
+/* Gallery masthead, mirrors the newspaper's */
+.gallery-masthead {
+  border-bottom: 3px double var(--mid);
+  padding-bottom: 1rem; margin-bottom: 3rem;
+  display: flex; justify-content: space-between; align-items: baseline;
+}
+.gallery-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900; letter-spacing: -.02em; line-height: 1;
+}
+
+/* The works sit along a path, alternating sides, labels facing the line */
 .tech-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1px; background: var(--mid);
-  border: 1px solid var(--mid);
+  position: relative;
+  display: flex; flex-direction: column;
+  gap: 8rem; padding: 2rem 0 4rem;
 }
 .tech-card {
-  background: var(--black);
-  padding: 2.5rem 2rem;
-  position: relative; overflow: hidden;
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 3fr);
+  gap: 2rem; align-items: center; width: 74%;
+}
+.tech-card:nth-child(even) { margin-left: auto; grid-template-columns: minmax(0, 3fr) minmax(0, 5fr); }
+.tech-card:nth-child(even) .tc-frame { order: 2; }
+.tech-card:nth-child(even) .wall-label { justify-self: end; }
+.path-line {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  z-index: 0; pointer-events: none; overflow: visible;
+}
+.path-line path { fill: none; stroke: var(--yellow); stroke-width: 1.5; opacity: .85; }
+.path-line circle { fill: var(--yellow); }
+
+/* The work, running */
+.tc-frame {
+  aspect-ratio: 16 / 10;
+  background: var(--grey);
+  border: 1px solid var(--mid);
+  overflow: hidden;
+}
+.tc-frame video {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  opacity: .3; filter: grayscale(.8);
+  transition: opacity 1s ease, filter 1s ease, transform .6s cubic-bezier(.16,1,.3,1);
+}
+.tech-card.awake .tc-frame video,
+.tech-card:focus-visible .tc-frame video { opacity: 1; filter: none; }
+
+/* Museum wall label */
+.wall-label {
+  background: var(--newsprint); color: #111;
+  padding: 1.1rem 1.3rem 1.2rem;
+  max-width: 24rem;
   transition: background .3s;
 }
-.tech-card.hero-card {
-  grid-column: span 2;
-  background: var(--grey);
+.tech-card:focus-visible { outline: 2px solid var(--yellow); outline-offset: 6px; }
+.tech-card:focus-visible .wall-label { background: var(--yellow); }
+@media (hover: hover) {
+  .tech-card:hover .tc-frame video { transform: scale(1.03); }
+  .tech-card:hover .wall-label { background: var(--yellow); }
 }
-.tech-card::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: var(--yellow);
-  transform: translateY(101%);
-  transition: transform .45s cubic-bezier(.16,1,.3,1);
-  z-index: 0;
+.wl-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem; font-weight: 700; font-style: italic;
+  line-height: 1.2;
 }
-.tech-card:hover::before { transform: translateY(0); }
-.tech-card:hover .tc-title,
-.tech-card:hover .tc-desc,
-.tech-card:hover .tc-tag { color: var(--black); border-color: rgba(0,0,0,.2); }
-.tech-card:hover .sp { background: rgba(0,0,0,.12); color: #000; }
-.tech-card > * { position: relative; z-index: 1; }
-
-.tc-tag {
-  display: inline-block;
+.wl-title .wl-year { font-style: normal; font-weight: 400; }
+.wl-medium, .wl-credit {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: .5rem; letter-spacing: .2em;
-  text-transform: uppercase; padding: .25rem .6rem;
-  border: 1px solid var(--mid); color: var(--white);
-  opacity: .5; margin-bottom: 1.5rem;
-  transition: color .3s, border-color .3s, opacity .3s;
+  font-size: .62rem; line-height: 1.6;
+  margin-top: .5rem;
 }
-.tech-card.hero-card .tc-tag { border-color: var(--yellow); color: var(--yellow); opacity: 1; }
-.tech-card:hover .tc-tag { opacity: 1; }
-
-.tc-title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
-  font-weight: 800; line-height: 1.15;
-  margin-bottom: .9rem;
-  transition: color .3s;
+.wl-credit { margin-top: .15rem; opacity: .65; }
+.wl-desc {
+  font-family: 'Playfair Display', serif;
+  font-size: .92rem; line-height: 1.55;
+  margin-top: .8rem; padding-top: .8rem;
+  border-top: 1px solid rgba(0,0,0,.15);
 }
-.tc-desc {
+.wl-link {
+  display: inline-block; margin-top: .9rem;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: .65rem; line-height: 1.8;
-  color: var(--white); opacity: .45;
-  transition: color .3s, opacity .3s;
+  font-size: .58rem; letter-spacing: .2em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #111; padding-bottom: 2px;
 }
-.tech-card:hover .tc-desc { opacity: .75; }
-.tc-stack { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: 1.2rem; }
-.sp {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .5rem; letter-spacing: .1em;
-  padding: .2rem .55rem;
-  background: var(--mid); color: var(--white);
-  opacity: .7; transition: background .3s, color .3s;
-}
-
-/* ─── ABOUT ─── */
-#about {
-  border-top: 1px solid var(--mid);
-  padding: 6rem 2.5rem;
-  display: grid; grid-template-columns: 1fr 2fr;
-  gap: 4rem; align-items: start;
-}
-.about-big {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3.5rem, 8vw, 7.5rem);
-  line-height: .87; color: var(--white);
-}
-.about-big .y { color: var(--yellow); }
-.about-text {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(.9rem, 1.4vw, 1.05rem);
-  line-height: 1.8; color: var(--white); opacity: .65;
-}
-.about-text strong { color: var(--white); opacity: 1; font-weight: 700; }
-.tag-cloud { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1.8rem; }
-.atag {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .55rem; letter-spacing: .15em;
-  text-transform: uppercase; padding: .35rem .75rem;
-  border: 1px solid var(--mid); color: var(--white); opacity: .35;
-  transition: opacity .2s, border-color .2s, color .2s;
-  cursor: default;
-}
-.atag:hover { opacity: 1; border-color: var(--yellow); color: var(--yellow); }
 
 /* ─── FOOTER ─── */
 footer {
@@ -638,7 +389,7 @@ footer {
   gap: 3rem; align-items: end;
 }
 .footer-cta {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'League Gothic', sans-serif; text-transform: uppercase;
   font-size: clamp(3.5rem, 9vw, 9rem);
   line-height: .82; color: var(--white);
 }
@@ -652,85 +403,16 @@ footer {
   transition: padding-left .3s;
 }
 .fl:hover { padding-left: .5rem; }
-.fl-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; }
+.fl-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; }
 .fl-arr {
   font-family: 'IBM Plex Mono', monospace; font-size: .7rem;
-  opacity: .3; transition: opacity .3s, color .3s;
+  opacity: .6; transition: opacity .3s, color .3s;
 }
 .fl:hover .fl-arr { opacity: 1; color: var(--yellow); }
-.footer-bot {
-  border-top: 1px solid var(--mid);
-  padding: 1.5rem 2.5rem;
-  display: flex; justify-content: space-between; align-items: center;
-}
-.footer-copy {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .55rem; color: var(--white); opacity: .18; letter-spacing: .1em;
-}
-.footer-ala {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .55rem; color: var(--yellow); letter-spacing: .35em; opacity: .5;
-}
-
 /* ─── ANIMATIONS ─── */
-@keyframes riseIn {
-  from { transform: translateY(110%); }
-  to   { transform: translateY(0); }
-}
-@keyframes ticker {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-@keyframes breathe {
-  0%,100% { opacity:1; } 50% { opacity:.3; }
-}
-@keyframes blink {
-  0%,100% { opacity:.25; } 50% { opacity:0; }
-}
-@keyframes spinCube {
-  from { transform: rotateX(-20deg) rotateY(0deg); }
-  to   { transform: rotateX(-20deg) rotateY(360deg); }
-}
-@keyframes bobSphere {
-  0%,100% { transform: translateY(0) scale(1); }
-  50%     { transform: translateY(-12px) scale(1.03); }
-}
-@keyframes spinPyramid {
-  from { transform: rotateY(0deg) rotateX(10deg); }
-  to   { transform: rotateY(360deg) rotateX(10deg); }
-}
-@keyframes rotatePill {
-  0%,100% { transform: rotate(-6deg) translateY(0); }
-  50%     { transform: rotate(6deg) translateY(-10px); }
-}
-@keyframes spinDonut {
-  from { transform: rotateX(60deg) rotateZ(0deg); }
-  to   { transform: rotateX(60deg) rotateZ(360deg); }
-}
-@keyframes float1 {
-  0%,100% { transform: translateY(0) translateX(0); }
-  33%     { transform: translateY(-18px) translateX(8px); }
-  66%     { transform: translateY(8px) translateX(-5px); }
-}
-@keyframes float2 {
-  0%,100% { transform: translateY(0); }
-  50%     { transform: translateY(-22px); }
-}
-@keyframes float3 {
-  0%,100% { transform: translateY(0) rotate(0deg); }
-  50%     { transform: translateY(-14px) rotate(8deg); }
-}
-@keyframes float4 {
-  0%,100% { transform: translateY(0) rotate(-6deg); }
-  50%     { transform: translateY(-16px) rotate(6deg); }
-}
-@keyframes float5 {
-  0%,100% { transform: translateY(0) translateX(0); }
-  50%     { transform: translateY(-20px) translateX(10px); }
-}
-@keyframes growLine {
-  0%,100% { width: 50px; opacity: .2; }
-  50%     { width: 80px; opacity: .4; }
+@keyframes drawDown {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
 }
 
 
@@ -744,7 +426,7 @@ footer {
   border-bottom: 1px solid var(--mid);
 }
 .subscribe-label {
-  font-family: 'Syne', sans-serif;
+  font-family: 'Playfair Display', serif;
   font-size: 1rem; font-weight: 700;
   color: var(--white);
 }
@@ -752,7 +434,7 @@ footer {
   font-family: 'IBM Plex Mono', monospace;
   font-size: .55rem; letter-spacing: .15em;
   text-transform: uppercase;
-  color: var(--white); opacity: .3;
+  color: var(--white); opacity: .6;
 }
 .subscribe-form {
   display: flex; gap: .5rem; margin-top: .4rem;
@@ -771,7 +453,7 @@ footer {
   cursor: none;
 }
 .subscribe-input::placeholder {
-  color: var(--white); opacity: .2;
+  color: var(--white); opacity: .45;
 }
 .subscribe-input:focus {
   border-color: var(--yellow);
@@ -800,16 +482,6 @@ footer {
 .subscribe-field { display: none; }
 
 /* ─── MEDIA MODAL ─── */
-.tc-view {
-  margin-top: 1.5rem;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: .6rem; letter-spacing: .2em;
-  text-transform: uppercase; color: var(--yellow);
-  opacity: 0; transform: translateY(4px);
-  transition: opacity .3s, transform .3s;
-}
-.tech-card:hover .tc-view { opacity: 1; transform: translateY(0); }
-.tech-card:hover .tc-view { color: var(--black); }
 
 .media-modal {
   position: fixed; inset: 0;
@@ -876,14 +548,16 @@ footer {
   a, button, .tech-card, .modal-close { cursor: pointer; }
 }
 @media (max-width: 900px) {
-  #hero { grid-template-columns: 1fr; }
-  .hero-right { display: none; }
+  #hero { padding-top: 3rem; }
+  .hero-thread { margin-left: 6px; } /* lines up with the gallery path on phones */
   .np-columns { grid-template-columns: 1fr !important; }
   .np-col { border-right: none !important; padding-left: 0 !important; }
   .np-body.two-col { columns: 1; }
-  .tech-grid { grid-template-columns: 1fr; }
-  .tech-card.hero-card { grid-column: span 1; }
-  #about { grid-template-columns: 1fr; gap: 2rem; }
+  .tech-grid { gap: 4.5rem; padding-left: 1.75rem; }
+  .tech-card, .tech-card:nth-child(even) { width: 100%; margin-left: 0; grid-template-columns: 1fr; gap: 1rem; }
+  .tech-card:nth-child(even) .tc-frame { order: 0; }
+  .tech-card:nth-child(even) .wall-label { justify-self: start; }
+  .gallery-masthead { flex-direction: column; gap: .5rem; }
   footer { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .np-masthead { flex-direction: column; gap: .5rem; }
@@ -894,34 +568,12 @@ footer {
 
 <div class="cursor" id="cursor"></div>
 
-<!-- ─── ENTRY ─── -->
-<div id="entry">
-  <div class="entry-ala">// àlà //</div>
-  <div class="entry-name-big">
-    <span class="line"><em>afọpẹ́</em></span>
-    <span class="line"><em>fólúwa</em></span>
-    <span class="line"><em>òjó</em></span>
-  </div>
-  <div class="entry-prompt">— anywhere to enter —</div>
-</div>
-
-<!-- ─── TICKER ─── -->
-<div class="ticker">
-  <div class="ticker-track">
-    <span class="ticker-item">Lagos · Amsterdam</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">// àlà //</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">Lagos · Amsterdam</span><span class="ticker-sep">✦</span>
-    <span class="ticker-item">// àlà //</span><span class="ticker-sep">✦</span>
-  </div>
-</div>
-
 <!-- ─── NAV ─── -->
 <nav>
-  <a href="#" class="nav-logo">// àlà //</a>
+  <a href="#" class="nav-logo">// àlá //</a>
   <ul class="nav-links">
     <li><a href="#writing">Writing</a></li>
-    <li><a href="#tech">Tech</a></li>
-    <li><a href="#about">About</a></li>
+    <li><a href="#tech">Gallery</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -930,71 +582,12 @@ footer {
 
 <!-- ─── HERO ─── -->
 <section id="hero">
-  <div class="hero-left">
-    <div class="hero-eyebrow">Lagos · Amsterdam</div>
-    <h1 class="hero-name">
-      afọpẹ́<br>fólúwa<br><span class="y">òjó</span>
-    </h1>
-    <p class="hero-sub">Writer · Creative Technologist</p>
-    <div class="scroll-hint">scroll</div>
-  </div>
-
-  <div class="hero-right">
-    <div class="hero-clay-stage">
-
-      <!-- CUBE -->
-      <div class="shape-wrap sw-cube">
-        <div class="cube">
-          <div class="cube-face cf-front">// àlà //</div>
-          <div class="cube-face cf-back">ọjọ́</div>
-          <div class="cube-face cf-left"></div>
-          <div class="cube-face cf-right"></div>
-          <div class="cube-face cf-top"></div>
-          <div class="cube-face cf-bottom"></div>
-        </div>
-      </div>
-
-      <!-- SPHERE -->
-      <div class="shape-wrap sw-sphere">
-        <div class="sphere"></div>
-      </div>
-
-      <!-- PYRAMID -->
-      <div class="shape-wrap sw-pyramid">
-        <div class="pyramid-wrap">
-          <div class="pyramid-face pf1"></div>
-          <div class="pyramid-face pf2"></div>
-          <div class="pyramid-face pf3"></div>
-        </div>
-      </div>
-
-      <!-- PILL -->
-      <div class="shape-wrap sw-pill">
-        <div class="pill">fiction</div>
-      </div>
-
-      <!-- DONUT -->
-      <div class="shape-wrap sw-donut">
-        <div class="donut"></div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="hero-divider"></div>
+  <h1 class="hero-name">
+    afọpẹ́fólúwa<br><span class="y">òjó</span>
+  </h1>
+  <p class="hero-bio">Writes and builds speculative prototypes, between Lagos and Amsterdam.</p>
+  <div class="hero-thread" aria-hidden="true"></div>
 </section>
-
-<!-- ─── MARQUEE ─── -->
-<div class="marquee-row">
-  <div class="marquee-inner">
-    <span class="marquee-word">Fiction</span><span class="marquee-bull">●</span>
-    <span class="marquee-word">Code</span><span class="marquee-bull">●</span>
-    <span class="marquee-word">// àlà //</span><span class="marquee-bull">●</span>
-    <span class="marquee-word">Fiction</span><span class="marquee-bull">●</span>
-    <span class="marquee-word">Code</span><span class="marquee-bull">●</span>
-    <span class="marquee-word">// àlà //</span><span class="marquee-bull">●</span>
-  </div>
-</div>
 
 <!-- ─── WRITING (NEWSPAPER) ─── -->
 <section id="writing" class="newspaper-section">
@@ -1002,8 +595,7 @@ footer {
 
     <!-- Masthead -->
     <div class="np-masthead">
-      <div class="np-title">The // àlà // Newspaper</div>
-      <div class="np-dateline">Amsterdam — Lagos · 2026</div>
+      <div class="np-title">The // àlá // Newspaper</div>
     </div>
     <hr class="np-rule">
 
@@ -1069,68 +661,73 @@ footer {
 
 <!-- ─── TECH ─── -->
 <section id="tech">
-  <div class="section-label reveal">Creative Technology</div>
-  <div class="tech-grid reveal">
+  <div class="gallery-masthead reveal">
+    <div class="gallery-title">The // àlá // Gallery</div>
+  </div>
+  <div class="tech-grid">
 
-    <div class="tech-card" data-media-type="link" data-media='["https://vertigo-silk.vercel.app/"]' data-title="Colab NowNow · Vertigo">
-      <div class="tc-tag">2018 · Maputo · Colab NowNow</div>
-      <h3 class="tc-title">Vertigo</h3>
-      <p class="tc-desc">Generative web piece — photography and p5.js in the browser.</p>
-      <div class="tc-stack">
-        <span class="sp">p5.js</span>
-        <span class="sp">Installation</span>
-        <span class="sp">British Council</span>
-        <span class="sp">Generative Art</span>
+    <div tabindex="0" role="link" class="tech-card" data-media-type="link" data-media='["https://vertigo-silk.vercel.app/"]' data-title="Colab NowNow · Vertigo">
+      <div class="tc-frame">
+        <video muted loop playsinline preload="none" poster="media/tech/vertigo.jpg" aria-label="Vertigo running">
+          <source src="media/tech/vertigo.webm" type="video/webm">
+          <source src="media/tech/vertigo.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="tc-view">Try it →</div>
+      <div class="wall-label">
+        <h3 class="wl-title">Vertigo, <span class="wl-year">2018</span></h3>
+        <div class="wl-medium">Generative installation; p5.js, photography, web browser</div>
+        <div class="wl-credit">Colab NowNow, Maputo · British Council</div>
+        <p class="wl-desc">Generative web piece — photography and p5.js in the browser.</p>
+        <div class="wl-link">Try it →</div>
+      </div>
     </div>
 
-    <div class="tech-card" data-media-type="link" data-media='["https://huggingface.co/spaces/afope/masquerade-classifier"]' data-title="Masquerade Classifier">
-      <div class="tc-tag">2024 · Hugging Face</div>
-      <h3 class="tc-title">Masquerade Classifier</h3>
-      <p class="tc-desc">Classify Gelede, Egungun, and Agemo masquerades from images.</p>
-      <div class="tc-stack">
-        <span class="sp">ResNet18</span>
-        <span class="sp">PyTorch</span>
-        <span class="sp">Gradio</span>
+    <div tabindex="0" role="link" class="tech-card" data-media-type="link" data-media='["https://huggingface.co/spaces/afope/masquerade-classifier"]' data-title="Masquerade Classifier">
+      <div class="tc-frame">
+        <video muted loop playsinline preload="none" poster="media/tech/masquerade.jpg" aria-label="Masquerade Classifier running">
+          <source src="media/tech/masquerade.webm" type="video/webm">
+          <source src="media/tech/masquerade.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="tc-view">Try it →</div>
+      <div class="wall-label">
+        <h3 class="wl-title">Masquerade Classifier, <span class="wl-year">2026</span></h3>
+        <div class="wl-medium">ResNet18 image model; PyTorch, Gradio</div>
+        <div class="wl-credit">Hugging Face Spaces</div>
+        <p class="wl-desc">Classify Gelede, Egungun, and Agemo masquerades from images. Shown here reading the artist’s portrait as Egungun.</p>
+        <div class="wl-link">Try it →</div>
+      </div>
     </div>
 
-    <div class="tech-card" data-media-type="images" data-media='["afrikan_poet.JPG", "afrikan_poet_2.JPG"]' data-title="An Afrikan Poet Cries at the Wind">
-      <div class="tc-tag">2020 · Savvy Contemporary, Berlin</div>
-      <h3 class="tc-title">An Afrikan Poet Cries at the Wind</h3>
-      <p class="tc-desc">Poems from the internet, sent one at a time to subscribers.</p>
-      <div class="tc-stack">
-        <span class="sp">Archive</span>
-        <span class="sp">Distribution</span>
-        <span class="sp">Poetry</span>
+    <div tabindex="0" role="link" class="tech-card" data-media-type="images" data-media='["afrikan_poet.JPG", "afrikan_poet_2.JPG"]' data-title="An Afrikan Poet Cries at the Wind">
+      <div class="tc-frame">
+        <video muted loop playsinline preload="none" poster="media/tech/afrikan-poet.jpg" aria-label="An Afrikan Poet Cries at the Wind running">
+          <source src="media/tech/afrikan-poet.webm" type="video/webm">
+          <source src="media/tech/afrikan-poet.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="tc-view">View project →</div>
+      <div class="wall-label">
+        <h3 class="wl-title">An Afrikan Poet Cries at the Wind, <span class="wl-year">2020</span></h3>
+        <div class="wl-medium">Archive, distribution, poetry</div>
+        <div class="wl-credit">Savvy Contemporary, Berlin</div>
+        <p class="wl-desc">Poems from the internet, sent one at a time to subscribers.</p>
+        <div class="wl-link">View installation →</div>
+      </div>
     </div>
 
-    <div class="tech-card" data-media-type="link" data-media='["https://miliki.ng"]' data-title="MÍLÍKÌ">
-      <div class="tc-tag">Web · Lagos · mílíkì.ng</div>
-      <h3 class="tc-title">MÍLÍKÌ</h3>
-      <p class="tc-desc">Website for MÍLÍKÌ, a cultural lounge in Victoria Island, Lagos.</p>
-      <div class="tc-stack">
-        <span class="sp">Web</span>
-        <span class="sp">Lagos</span>
-        <span class="sp">Cultural Institution</span>
+    <div tabindex="0" role="link" class="tech-card" data-media-type="link" data-media='["https://graceland-flax.vercel.app/"]' data-title="Graceland">
+      <div class="tc-frame">
+        <video muted loop playsinline preload="none" poster="media/tech/graceland.jpg" aria-label="Graceland running">
+          <source src="media/tech/graceland.webm" type="video/webm">
+          <source src="media/tech/graceland.mp4" type="video/mp4">
+        </video>
       </div>
-      <div class="tc-view">Visit site →</div>
-    </div>
-
-    <div class="tech-card" data-media-type="link" data-media='["https://graceland-flax.vercel.app/"]' data-title="Graceland">
-      <div class="tc-tag">Interactive Poetry · Web</div>
-      <h3 class="tc-title">Graceland</h3>
-      <p class="tc-desc">Interactive poem — conversations with my father, on the web.</p>
-      <div class="tc-stack">
-        <span class="sp">JavaScript</span>
-        <span class="sp">Interactive Fiction</span>
-        <span class="sp">Web3</span>
+      <div class="wall-label">
+        <h3 class="wl-title">Graceland, <span class="wl-year">2017</span></h3>
+        <div class="wl-medium">Interactive poem; JavaScript</div>
+        <div class="wl-credit">On the web</div>
+        <p class="wl-desc">Interactive poem — conversations with my father, on the web.</p>
+        <div class="wl-link">Try it →</div>
       </div>
-      <div class="tc-view">Try it →</div>
     </div>
 
   </div>
@@ -1146,26 +743,15 @@ footer {
   </div>
 </div>
 
-<!-- ─── ABOUT ─── -->
-<section id="about">
-  <div class="about-big reveal">
-    Engineer<br>
-    <span class="y">Poet</span><br>
-    Interface
-  </div>
-  <div>
-    <p class="about-text reveal">
-      Fiction and code under <strong>// àlà //</strong>.
-    </p>
-  </div>
-</section>
-
 <!-- ─── FOOTER ─── -->
 <footer id="contact">
   <div class="footer-cta reveal">
     Find<br><span class="y">Me.</span>
   </div>
   <div class="footer-right reveal">
+    <a href="mailto:afope@ita.ng" class="fl">
+      <span class="fl-name">Email</span><span class="fl-arr">→</span>
+    </a>
     <a href="https://lolwe.org/come-come-lets-go-cycling-in-the-woods/" class="fl" target="_blank">
       <span class="fl-name">Latest Work</span><span class="fl-arr">→</span>
     </a>
@@ -1183,11 +769,6 @@ footer {
     </div>
   </div>
 </footer>
-<div class="footer-bot">
-  <span class="footer-copy">© 2026 Afopefoluwa Ojo · All rights reserved</span>
-  <span class="footer-ala">// àlà //</span>
-</div>
-
 </main>
 
 <script>
@@ -1197,17 +778,9 @@ document.addEventListener('mousemove', e => {
   cur.style.left = e.clientX + 'px';
   cur.style.top  = e.clientY + 'px';
 });
-document.querySelectorAll('a, .marquee-word, .tech-card, .atag').forEach(el => {
+document.querySelectorAll('a, .tech-card').forEach(el => {
   el.addEventListener('mouseenter', () => cur.classList.add('expand'));
   el.addEventListener('mouseleave', () => cur.classList.remove('expand'));
-});
-
-// Entry
-document.addEventListener('click', () => {
-  document.getElementById('entry').classList.add('gone');
-});
-document.addEventListener('keydown', () => {
-  document.getElementById('entry').classList.add('gone');
 });
 
 // Scroll reveal
@@ -1215,6 +788,50 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Tech gallery: play each work while it is on screen
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const clipObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) e.target.play().catch(() => {});
+    else e.target.pause();
+  });
+}, { threshold: 0.25 });
+if (!reduceMotion) document.querySelectorAll('.tc-frame video').forEach(v => clipObs.observe(v));
+
+// Tech gallery: draw the path through the works and wake each one as it is reached
+const techGrid = document.querySelector('.tech-grid');
+const techCards = [...techGrid.querySelectorAll('.tech-card')];
+const pathSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+pathSvg.classList.add('path-line');
+pathSvg.setAttribute('aria-hidden', 'true');
+techGrid.prepend(pathSvg);
+function drawPath() {
+  const g = techGrid.getBoundingClientRect();
+  const narrow = innerWidth <= 900;
+  const pts = techCards.map(c => {
+    const f = c.querySelector('.tc-frame').getBoundingClientRect();
+    return { x: narrow ? 6 : f.left - g.left + f.width / 2, y: f.top - g.top + f.height / 2 };
+  });
+  pts.unshift({ x: narrow ? 6 : 0, y: 0 });
+  pts.push({ x: narrow ? 6 : g.width / 2, y: g.height });
+  let d = `M ${pts[0].x} ${pts[0].y}`;
+  for (let i = 1; i < pts.length; i++) {
+    const a = pts[i - 1], b = pts[i], dy = (b.y - a.y) / 2;
+    d += ` C ${a.x} ${a.y + dy * 1.7}, ${b.x} ${b.y - dy * 1.7}, ${b.x} ${b.y}`;
+  }
+  pathSvg.setAttribute('viewBox', `0 0 ${g.width} ${g.height}`);
+  pathSvg.innerHTML = `<path d="${d}"/>` +
+    (narrow ? pts.slice(1, -1).map(p => `<circle cx="${p.x}" cy="${p.y}" r="4"/>`).join('') : '');
+}
+new ResizeObserver(drawPath).observe(techGrid);
+if (reduceMotion) techCards.forEach(c => c.classList.add('awake'));
+else {
+  const wakeObs = new IntersectionObserver(entries => {
+    entries.forEach(e => e.target.classList.toggle('awake', e.isIntersecting));
+  }, { rootMargin: '-30% 0px -30% 0px' });
+  techCards.forEach(c => wakeObs.observe(c));
+}
 
 // Media modal
 const modal = document.getElementById('media-modal');
@@ -1224,6 +841,9 @@ const modalClose = document.getElementById('modal-close');
 const modalBackdrop = document.getElementById('modal-backdrop');
 
 document.querySelectorAll('.tech-card[data-media-type]').forEach(card => {
+  card.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+  });
   card.addEventListener('click', () => {
     const type = card.dataset.mediaType;
     const media = JSON.parse(card.dataset.media);
